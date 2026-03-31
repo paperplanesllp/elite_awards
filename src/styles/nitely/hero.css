@@ -1,0 +1,253 @@
+.nitely-page .section.homepage-hero {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	min-height: 90vh;
+	padding-top: 9.2rem;
+	padding-bottom: 5rem;
+	overflow: hidden;
+	background: #000;
+	color: #fff;
+}
+
+.nitely-page .background-video,
+.nitely-page .background-video video {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.nitely-page .hero-overlay {
+	position: absolute;
+	inset: 0;
+	background:
+		linear-gradient(180deg, rgba(0, 0, 0, 0.38) 0%, rgba(0, 0, 0, 0.74) 100%),
+		linear-gradient(90deg, rgba(0, 0, 0, 0.58) 0%, rgba(0, 0, 0, 0.3) 45%, rgba(0, 0, 0, 0.74) 100%);
+}
+
+.nitely-page .hero-content-wrap {
+	position: relative;
+	z-index: 2;
+	display: block;
+	width: min(1400px, 96%);
+	padding-bottom: 3.1rem;
+}
+
+.nitely-page .hero-stage {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr);
+	gap: 0;
+	align-items: end;
+}
+
+.nitely-page .hero-copy {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	max-width: 840px;
+	animation: riseIn 800ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.nitely-page .hero-eyebrow {
+	margin: 0;
+	font-family: "Inter", sans-serif;
+	font-size: clamp(0.86rem, 1.15vw, 1.15rem);
+	font-weight: 500;
+	color: #d6eeff;
+}
+
+
+.nitely-page .hero-display {
+	margin: 0;
+	margin-top: clamp(0.65rem, 1vw, 1rem);
+	font-family: "Inter", sans-serif;
+	font-size: clamp(2.2rem, 5.6vw, 4.6rem);
+	line-height: 1.02;
+	font-weight: 800;
+	letter-spacing: -0.03em;
+	color: #fff;
+}
+
+.nitely-page .hero-display-line {
+	display: block;
+}
+
+.nitely-page .hero-tagline {
+	margin: 0;
+	margin-top: clamp(0.8rem, 1.5vw, 1.25rem);
+	font-family: "Inter", sans-serif;
+	font-size: clamp(1.24rem, 2.2vw, 2.25rem);
+	line-height: 1.08;
+	font-weight: 700;
+	letter-spacing: -0.02em;
+}
+
+.nitely-page .hero-display-accent {
+	margin-top: 0.2em;
+	background: linear-gradient(92deg, #ff4e66 0%, #d11445 56%, #af103e 100%);
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+}
+
+.nitely-page .hero-support {
+	max-width: 42ch;
+	margin-top: clamp(0.9rem, 1.45vw, 1.3rem);
+	margin-bottom: 0;
+	font-family: "Inter", sans-serif;
+	font-size: clamp(0.98rem, 1.25vw, 1.06rem);
+	line-height: 1.48;
+	font-weight: 400;
+	color: #ccc;
+}
+
+.nitely-page .hero-foot {
+	display: flex;
+	align-items: flex-end;
+	gap: clamp(1rem, 2.2vw, 2.7rem);
+	margin-top: clamp(1.4rem, 2.8vw, 2.3rem);
+	flex-wrap: wrap;
+}
+
+.nitely-page .hero-apply-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0.95rem 2.1rem;
+	border-radius: 999px;
+	font-family: "Inter", sans-serif;
+	font-size: clamp(0.98rem, 1.2vw, 1.08rem);
+	font-weight: 600;
+	letter-spacing: 0;
+	text-decoration: none;
+	color: #fff;
+	background: linear-gradient(90deg, #cb1df4 0%, #1ad3ff 100%);
+	box-shadow: 0 8px 24px rgba(20, 194, 255, 0.32);
+	transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease;
+}
+
+.nitely-page .hero-apply-btn:hover {
+	transform: translateY(-2px);
+	filter: brightness(1.03);
+	box-shadow: 0 12px 30px rgba(20, 194, 255, 0.42);
+}
+
+.nitely-page .hero-facts {
+	display: flex;
+	align-items: flex-start;
+	gap: clamp(1.2rem, 2vw, 2.2rem);
+	flex-wrap: wrap;
+}
+
+.nitely-page .hero-fact-item {
+	display: grid;
+	gap: 0.22rem;
+	min-width: 9.2rem;
+}
+
+.nitely-page .hero-fact-label {
+	font-family: "Inter", sans-serif;
+	font-size: 0.78rem;
+	font-weight: 500;
+	color: rgba(255, 255, 255, 0.7);
+}
+
+.nitely-page .hero-fact-value {
+	font-family: "Inter", sans-serif;
+	font-size: clamp(1.06rem, 1.5vw, 1.15rem);
+	font-weight: 700;
+	color: #fff;
+}
+
+.nitely-page .scroll-down-lottie {
+	position: absolute;
+	left: 50%;
+	bottom: 1.45rem;
+	transform: translateX(-50%);
+	z-index: 2;
+	width: 2.25rem;
+	height: 3.5rem;
+	border: 2px solid rgba(255, 255, 255, 0.92);
+	border-radius: 999px;
+	display: inline-flex;
+	align-items: flex-start;
+	justify-content: center;
+	padding-top: 0.52rem;
+	text-decoration: none;
+	background: rgba(0, 0, 0, 0.22);
+	-webkit-backdrop-filter: blur(2px);
+	backdrop-filter: blur(2px);
+}
+
+.nitely-page .scroll-pill {
+	display: block;
+	width: 0.36rem;
+	height: 0.72rem;
+	border-radius: 999px;
+	background: #fff;
+	animation: scrollHint 1.6s ease-in-out infinite;
+}
+
+
+
+.nitely-page .event-details {
+	display: flex;
+	gap: clamp(2rem, 4vw, 3.5rem);
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+	padding: 1.5rem 0;
+	border-top: 1px solid rgba(255, 255, 255, 0.1);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nitely-page .detail-item {
+	display: flex;
+	flex-direction: column;
+	gap: 0.4rem;
+}
+
+.nitely-page .detail-label {
+	font-family: "Inter", sans-serif;
+	font-size: 0.75rem;
+	font-weight: 600;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: rgba(255, 255, 255, 0.6);
+}
+
+.nitely-page .detail-value {
+	font-family: "Inter", sans-serif;
+	font-size: clamp(1.1rem, 1.5vw, 1.25rem);
+	font-weight: 700;
+	color: #fff;
+}
+
+.nitely-page .hero-heading {
+	margin-bottom: 1rem;
+}
+
+.nitely-page .hero-button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 1rem 2.4rem;
+	border-radius: 8px;
+	font-family: "Inter", sans-serif;
+	font-size: 1rem;
+	font-weight: 600;
+	letter-spacing: 0.05em;
+	text-decoration: none;
+	color: #fff;
+	background: linear-gradient(90deg, #cc1ef3 0%, #2dd0ff 100%);
+	box-shadow: 0 8px 24px rgba(20, 194, 255, 0.32);
+	transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease;
+}
+
+.nitely-page .hero-button:hover {
+	transform: translateY(-3px);
+	filter: brightness(1.05);
+	box-shadow: 0 12px 32px rgba(20, 194, 255, 0.42);
+}

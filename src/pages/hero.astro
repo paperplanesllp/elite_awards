@@ -1,0 +1,94 @@
+---
+import Navbar from '../components/Navbar.astro';
+import { Image } from 'astro:assets';
+import paperplanesLogo from '../assets/paperplanes logo.png';
+import '../styles/global.css';
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700&display=swap" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Hero | Nitely</title>
+    <style is:global>
+      .nitely-page .homepage-hero .hero-heading {
+        margin: 0;
+        font-family: "Inter", sans-serif;
+        font-size: 32px;
+        line-height: 1.2;
+        font-weight: 700;
+        font-style: normal;
+        font-variant: normal;
+        letter-spacing: 0;
+        text-transform: uppercase;
+        text-decoration: none;
+        text-align: start;
+        text-indent: 0;
+        color: #fff;
+      }
+
+      .nitely-page .homepage-hero .subheading {
+        font-family: "Inter", sans-serif;
+        font-size: 16px;
+        line-height: 1.5;
+        font-weight: 400;
+        font-style: normal;
+        font-variant: normal;
+        text-transform: none;
+        text-decoration: none;
+        text-align: start;
+        text-indent: 0;
+        color: #ccc;
+      }
+    </style>
+  </head>
+  <body>
+    <Navbar />
+    <main class="nitely-page">
+      <section class="section homepage-hero">
+        <div class="background-video" aria-hidden="true">
+          <video
+            autoplay
+            loop
+            muted
+            playsinline
+            preload="metadata"
+            poster="https://cdn.prod.website-files.com/6561d5e81d521597da661638/6572fa462c6bef31db6fea94_nightly-hero-video%20-%20HD%201080p-poster-00001.jpg"
+          >
+            <source src="/videos/herov1.mp4" type="video/mp4" />
+          </video>
+        </div>
+        <div class="hero-overlay"></div>
+
+        <div class="nitely-shell hero-content-wrap">
+          <div class="align-left">
+            <div class="hero-logo">
+              <Image src={paperplanesLogo} alt="PaperPlanes Logo" height={24} width={24} /> 
+            </div>
+            <h1 class="hero-heading">Elite Achievers Awards 2026</h1>
+            <p class="subheading">Honouring Excellence. Elevating Influence.<br /><br />A national celebration recognizing entrepreneurs, leaders, and innovators shaping the future.</p>
+            <div class="event-details">
+              <div class="detail-item">
+                <span class="detail-label">Date</span>
+                <span class="detail-value">April 2026</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-label">Location</span>
+                <span class="detail-value">Bangalore</span>
+              </div>
+            </div>
+            <a href="/events" class="hero-button">Explore The Event</a>
+          </div>
+        </div>
+
+        <a href="/events" class="scroll-down-lottie" aria-label="Go to events">
+          <span class="scroll-pill"></span>
+        </a>
+      </section>
+    </main>
+  </body>
+</html>

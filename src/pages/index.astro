@@ -1,17 +1,479 @@
 ---
+import Navbar from '../components/Navbar.astro';
+import EventCalendar from '../components/EventCalendar.astro';
+import GoldenWaveform from '../components/GoldenWaveform.astro';
+import '../styles/global.css';
 
+const marqueeBlocks = [0, 1, 2, 3];
+const marqueeLogos = [0, 1, 2, 3, 4, 5, 6, 7];
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700&display=swap" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content="Elite Achievers Awards 2026 - A national celebration recognizing entrepreneurs, leaders, and innovators shaping the future. Join us in April 2026 in Bangalore." />
+    <meta name="keywords" content="awards, excellence, entrepreneurs, innovation, recognition, 2026" />
+    <meta name="author" content="Elite Achievers Awards" />
+    <meta property="og:title" content="Elite Achievers Awards 2026 | Honouring Excellence. Elevating Influence." />
+    <meta property="og:description" content="National celebration recognizing entrepreneurs, leaders, and innovators shaping the future." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Elite Achievers Awards 2026" />
+    <meta name="twitter:description" content="Honouring Excellence. Elevating Influence." />
+    <title>Elite Achievers Awards 2026 | Honouring Excellence. Elevating Influence.</title>
+  </head>
+  <body>
+    <Navbar />
+    <EventCalendar />
+    <main class="nitely-page">
+      <section class="section homepage-hero">
+        <div class="background-video" aria-hidden="true">
+          <video
+            autoplay
+            loop
+            muted
+            playsinline
+            preload="metadata"
+          >
+            <source src="/videos/herov1.mp4" type="video/mp4" />
+          </video>
+        </div>
+        <div class="hero-overlay"></div>
+
+        <div class="nitely-shell hero-content-wrap">
+          <div class="hero-stage">
+            <div class="hero-copy">
+              <img src="/images/paperplanes logo.png" alt="PaperPlanes Logo" style="width: 320px; max-width: 72vw; height: auto;" />
+              <GoldenWaveform />
+              <p class="hero-tagline">Honouring Excellence. Elevating Influence.</p>
+              <p class="hero-support">A national celebration recognizing entrepreneurs, leaders, and innovators shaping the future.</p>
+
+              <div class="hero-foot" aria-label="Event details">
+                <a href="/" class="hero-apply-btn" data-scroll-target="upcoming-events">Explore The Event</a>
+                <div class="hero-facts">
+                  <div class="hero-fact-item">
+                    <span class="hero-fact-label">Date</span>
+                    <span class="hero-fact-value">April 2026</span>
+                  </div>
+                  <div class="hero-fact-item">
+                    <span class="hero-fact-label">Location</span>
+                    <span class="hero-fact-value">Bangalore</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <a href="/" class="scroll-down-lottie" data-scroll-target="upcoming-events" aria-label="Scroll to upcoming events">
+          <span class="scroll-pill"></span>
+        </a>
+      </section>
+
+      <section class="section no-top-padding events-section">
+        <div class="nitely-shell">
+          <div class="events-colection-wrap">
+            <div class="block-grid reveal-up" id="upcoming-events">
+              <h2 class="block-heading">Past events</h2>
+
+
+              <div class="collection-list-wrapper">
+                <div class="collection-list">
+                  <article class="collection-item reveal-up">
+                    <div class="event-card-wrap">
+                      <a href="" class="event-link-block" aria-label="Jazz Thursday">
+                        <img src="../images/nalla.jpg" alt="Jazz Thursday" class="image-1-1" loading="lazy" />
+                      </a>
+                      <div class="event-card-footer">
+                        <h3 class="card-heading">Mohammed Haris Nalapad</h3>
+                      </div>
+                    </div>
+                  </article>
+
+                  <article class="collection-item reveal-up">
+                    <div class="event-card-wrap">
+                      <a href="" class="event-link-block" aria-label="Acoustic Tuesday">
+                        <img src="../images/saina.png" alt="saina" class="image-1-1" loading="lazy" />
+                      </a>
+                      <div class="event-card-footer">
+                        <h3 class="card-heading">Saina Nehwal</h3>
+                      </div>
+                    </div>
+                  </article>
+
+                  <article class="collection-item reveal-up">
+                    <div class="event-card-wrap">
+                      <a href="" class="event-link-block" aria-label="DJ Antony">
+                        <img src="../images/sowmya.png" alt="sowmya" class="image-1-1" loading="lazy" />
+                      </a>
+                      <div class="event-card-footer">
+                        <h3 class="card-heading">Sowmya Reddy</h3>
+                      </div>
+                    </div>
+                  </article>
+
+                  <article class="collection-item reveal-up">
+                    <div class="event-card-wrap">
+                      <a href="" class="event-link-block" aria-label="Tetra Drum Show">
+                        <img src="../images/arnab.png" alt="arnab" class="image-1-1" loading="lazy" />
+                      </a>
+                      <div class="event-card-footer">
+                        <h3 class="card-heading">Arnab Goswami</h3>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+              </div>
+            </div>
+
+            <div class="block-grid top-margin reveal-up">
+              <h2 class="block-heading"></h2>
+
+              <div class="collection-list-wrapper">
+                <div class="collection-list">
+                  <article class="collection-item reveal-up">
+                    <div class="event-card-wrap">
+                      <a href="" class="event-link-block" aria-label="Tech Summit 2025">
+                        <img src="../images/sunil.jpg" alt="Tech Summit 2025" class="image-1-1" loading="lazy" />
+                      </a>
+                      <div class="event-card-footer">
+                        <h3 class="card-heading">Sunil Chhetri</h3>
+                      </div>
+                    </div>
+                  </article>
+
+                  <article class="collection-item reveal-up">
+                    <div class="event-card-wrap">
+                      <a href="" class="event-link-block" aria-label="Innovation Conference">
+                        <img src="../images/sunils.png" alt="Innovation Conference" class="image-1-1" loading="lazy" />
+                      </a>
+                      <div class="event-card-footer">
+                        <h3 class="card-heading">Suniel Shetty</h3>
+                      </div>
+                    </div>
+                  </article>
+
+                  <article class="collection-item reveal-up">
+                    <div class="event-card-wrap">
+                      <a href="" class="event-link-block" aria-label="Leadership Summit">
+                        <img src="../images/sudeep.png" alt="Leadership Summit" class="image-1-1" loading="lazy" />
+                      </a>
+                      <div class="event-card-footer">
+                        <h3 class="card-heading">Kiccha Sudeep</h3>
+                      </div>
+                    </div>
+                  </article>
+
+                  <article class="collection-item reveal-up">
+                    <div class="event-card-wrap">
+                      <a href="" class="event-link-block" aria-label="Excellence Awards">
+                        <img src="../images/ram.png" alt="Excellence Awards" class="image-1-1" loading="lazy" />
+                      </a>
+                      <div class="event-card-footer">
+                        <h3 class="card-heading">Arjun Rampal</h3>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="infinite-marquee-wrap">
+        {marqueeBlocks.map((block) => (
+          <div class="infinite-marquee-block" aria-hidden="true">
+            {marqueeLogos.map((logo) => (
+              <>
+                <span class="marquee-icon">✦</span>
+                <span class="marquee-text">COMING SOON</span>
+                <div class="marquee-separator"></div>
+              </>
+            ))}
+          </div>
+        ))}
+      </div>
+
+      <section class="section exclusive-section" id="about-section">
+        <div class="nitely-shell">
+          <div class="grid-2-2">
+            <img
+              src="https://cdn.prod.website-files.com/65782009fd8595214ed53f48/6585778df25d40e82b9b1d7e_zoneC.webp"
+              loading="lazy"
+              alt="Nightclub interior"
+              class="image-3-2"
+            />
+
+            <div class="exclusive-copy align-left reveal-side-right">
+              <p class="exclusive-eyebrow">Elite Recognition</p>
+              <h2 class="hero-heading">Showcase Your Success on a Prestigious Stage</h2>
+              <p class="subheading">
+                Be part of an elite gathering where your achievements are celebrated with
+                national recognition, premium media coverage, and meaningful connections
+                that elevate your personal and professional brand.
+              </p>
+              <div class="exclusive-highlights" aria-label="Participation benefits">
+                <span class="exclusive-highlight">National Exposure</span>
+                <span class="exclusive-highlight">Media Spotlight</span>
+                <span class="exclusive-highlight">High-Value Networking</span>
+              </div>
+              <a href="/" data-scroll-target="contact-section" class="hero-button">Reserve table</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="infinite-marquee-wrap secondary-color">
+        {marqueeBlocks.map((block) => (
+          <div class="infinite-marquee-block" aria-hidden="true">
+            {marqueeLogos.map((logo) => (
+              <>
+                <span class="marquee-icon">◆</span>
+                <span class="marquee-text secondary">COMING SOON</span>
+                <div class="marquee-separator accent"></div>
+              </>
+            ))}
+          </div>
+        ))}
+      </div>
+
+      <section class="section subscribe-section" id="contact-section">
+        <div class="nitely-shell">
+          <div class="subscribe-form reveal-up">
+            <form class="subscribe-form-container" id="enquiry-form" action="#" method="post" aria-label="Nomination Form">
+              <h2>Fill Up This Nomination Form</h2>
+
+              <div class="subscribe-form-grid">
+                <label>
+                  Title
+                  <select class="subscribe-form-input" name="title" required>
+                    <option value="" selected>-Select-</option>
+                    <option value="Mr">Mr</option>
+                    <option value="Ms">Ms</option>
+                    <option value="Mrs">Mrs</option>
+                    <option value="Dr">Dr</option>
+                    <option value="Prof">Prof</option>
+                  </select>
+                </label>
+
+                <label>
+                  Your Full Name
+                  <input class="subscribe-form-input" name="name" type="text" placeholder="Name" required />
+                </label>
+
+                <label>
+                  Organisation name
+                  <input class="subscribe-form-input" name="organisation" type="text" placeholder="Organisation name" required />
+                </label>
+
+                <label>
+                  Phone Number
+                  <input class="subscribe-form-input" name="phone" type="tel" placeholder="Phone Number" required />
+                </label>
+
+                <label>
+                  Email Address
+                  <input class="subscribe-form-input" name="email" type="email" placeholder="Email Address" required />
+                </label>
+
+                <label class="full-width">
+                  Address of Correspondence
+                  <textarea class="subscribe-form-input" name="address" rows="3" placeholder="Address of Correspondence" required></textarea>
+                </label>
+
+                <label>
+                  GSTIN (Optional)
+                  <input class="subscribe-form-input" name="gstin" type="text" placeholder="GSTIN" />
+                </label>
+
+                <label>
+                  Select your Sector
+                  <select class="subscribe-form-input" name="sector" required>
+                    <option value="" selected>-Select-</option>
+                    <option value="Technology">Technology</option>
+                    <option value="Finance">Finance</option>
+                    <option value="Healthcare">Healthcare</option>
+                    <option value="Education">Education</option>
+                    <option value="Manufacturing">Manufacturing</option>
+                    <option value="Others">Others</option>
+                  </select>
+                </label>
+
+                <label>
+                  Award Categories
+                  <input class="subscribe-form-input" name="awardCategory" type="text" placeholder="Select Award Categories" required />
+                </label>
+
+                <label>
+                  Website
+                  <input class="subscribe-form-input" name="website" type="url" placeholder="Website" />
+                </label>
+
+                <label>
+                  Are you Interested to apply for an Honorary Doctorate?
+                  <select class="subscribe-form-input" name="doctorateInterest" required>
+                    <option value="" selected>-Select-</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                  </select>
+                </label>
+
+                <label class="full-width nomination-terms">
+                  <span class="nomination-terms-row">
+                    <input type="checkbox" name="termsAccepted" required />
+                    <span>I have read and agree to the Terms and Conditions.</span>
+                  </span>
+                </label>
+              </div>
+
+              <div class="subscribe-actions">
+                <input type="submit" class="hero-button subscribe-btn" value="Submit Nomination" />
+                <div class="text-under-field" id="enquiry-status">Complete the form to submit your nomination.</div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section class="section footer">
+        <div class="nitely-shell">
+          <div class="footer-wrapper reveal-up">
+            <div class="footer-column footer-brand-col">
+              <a href="/" class="footer-brand" aria-label="Elite Achievers Awards Home">
+                <img src="../images/elite_logo.png" loading="lazy" alt="Elite Achievers Awards" class="logo" width="50 " height="50" />
+                <p class="copy-under-logo">National celebration recognizing excellence & innovation.</p>
+              </a>
+
+              <div class="follow-us-wrap">
+                <div class="footer-title">Follow @ELITEACHIEVERSAWARDS</div>
+                <div class="social-links-wrap">
+                  <a href="https://www.instagram.com/eliteachieversawards?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="social-icon-link" target="_blank" rel="noreferrer" aria-label="Instagram">
+                    <img src="https://cdn.prod.website-files.com/65782009fd8595214ed53f48/65782182792a4f62b6995868_Instagram.svg" loading="lazy" alt="Instagram" class="social-icon-image" />
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="footer-column">
+              <div class="footer-title">Navigation</div>
+              <a href="/" data-scroll-target="upcoming-events" class="link-footer">Events</a>
+              <a href="/" data-scroll-target="about-section" class="link-footer">About</a>
+              <a href="/" data-scroll-target="contact-section" class="link-footer">Nomination Form</a>
+              <button class="link-footer" onclick="window.openEventCalendar()" >Events Calendar</button>
+            </div>
+
+            <div class="footer-column">
+              <div class="footer-title">PR Department</div>
+              <a href="tel:+919037915305" class="link-footer">+91 90379 15305</a>
+              <a href="tel:+919995772002" class="link-footer">+91 99957 72002</a>
+            </div>
+
+            <div class="footer-column">
+              <div class="footer-title">Sales Department</div>
+              <a href="tel:+919037915305" class="link-footer">+91 90379 15305</a>
+              <a href="tel:+919995772002" class="link-footer">+91 99957 72002</a>
+            </div>
+          </div>
+
+          <div class="footer-bottom">
+            <div class="footer-divider"></div>
+            <div class="footer-bottom-content">
+              <p>&copy; 2026 Elite Achievers Awards. All rights reserved.</p>
+              <a href="https://eliteachieversawards.com" target="_blank" rel="noreferrer" class="footer-website-link">eliteachieversawards.com</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <script>
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-in-view');
+              }
+            });
+          },
+          { threshold: 0.16 }
+        );
+
+        document.querySelectorAll('.reveal-up, .reveal-side-left, .reveal-side-right').forEach((node, i) => {
+          const element = node as HTMLElement;
+          element.style.transitionDelay = `${Math.min(i * 55, 320)}ms`;
+          observer.observe(element);
+        });
+
+        const enquiryForm = document.querySelector('#enquiry-form') as HTMLFormElement | null;
+        const enquiryStatus = document.querySelector('#enquiry-status') as HTMLElement | null;
+
+        if (enquiryForm && enquiryStatus) {
+          enquiryForm.addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            const submitButton = enquiryForm.querySelector('input[type="submit"]') as HTMLInputElement | null;
+            if (submitButton) submitButton.disabled = true;
+
+            enquiryStatus.textContent = 'Submitting your nomination...';
+            enquiryStatus.classList.remove('success', 'error');
+            enquiryStatus.classList.add('submitting');
+
+            const formData = new FormData(enquiryForm);
+            const nominationSummary = [
+              `Title: ${String(formData.get('title') || '')}`,
+              `Organisation: ${String(formData.get('organisation') || '')}`,
+              `Address: ${String(formData.get('address') || '')}`,
+              `GSTIN: ${String(formData.get('gstin') || 'Not provided')}`,
+              `Sector: ${String(formData.get('sector') || '')}`,
+              `Award Category: ${String(formData.get('awardCategory') || '')}`,
+              `Website: ${String(formData.get('website') || 'Not provided')}`,
+              `Honorary Doctorate Interest: ${String(formData.get('doctorateInterest') || '')}`,
+              `Terms Accepted: ${formData.get('termsAccepted') ? 'Yes' : 'No'}`,
+            ].join('\n');
+
+            const payload = {
+              name: String(formData.get('name') || ''),
+              email: String(formData.get('email') || ''),
+              phone: String(formData.get('phone') || ''),
+              enquiry: nominationSummary,
+            };
+
+            try {
+              const response = await fetch('/api/enquiry', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload),
+              });
+
+              const result = await response.json();
+
+              if (!response.ok) {
+                throw new Error(result.message || 'Failed to submit nomination.');
+              }
+
+              enquiryStatus.textContent = 'Thank you. Your nomination has been received successfully.';
+              enquiryStatus.classList.remove('submitting', 'error');
+              enquiryStatus.classList.add('success');
+              enquiryForm.reset();
+            } catch (error) {
+              const message = error instanceof Error ? error.message : 'Unable to submit nomination right now.';
+              enquiryStatus.textContent = message;
+              enquiryStatus.classList.remove('submitting', 'success');
+              enquiryStatus.classList.add('error');
+            } finally {
+              if (submitButton) submitButton.disabled = false;
+            }
+          });
+        }
+      </script>
+    </main>
+  </body>
 </html>

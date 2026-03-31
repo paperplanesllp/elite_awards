@@ -1,0 +1,90 @@
+---
+import Navbar from '../components/Navbar.astro';
+import '../styles/global.css';
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700&display=swap" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Contact | Astro Atelier</title>
+  </head>
+  <body>
+    <Navbar />
+    <main class="site-shell py-10 sm:py-14">
+      <section class="hero-fade grid gap-5 lg:grid-cols-[0.9fr_1.1fr]">
+        <div class="card rounded-[2rem] p-7 sm:p-8">
+          <p class="text-xs font-bold uppercase tracking-[0.18em] text-[var(--accent)]">Let’s Talk</p>
+          <h1 class="display-font mt-3 text-4xl font-semibold leading-tight text-[var(--text)] sm:text-5xl">
+            Build a site that feels premium from first glance.
+          </h1>
+          <p class="mt-5 text-base leading-relaxed text-[var(--muted)]">
+            Share your goals, timeline, and what success looks like. We usually reply within one business day.
+          </p>
+
+          <div class="mt-8 grid gap-3 text-sm text-[var(--text)]">
+            <p class="rounded-xl border border-[var(--line)] bg-[var(--surface-strong)] px-4 py-3">Email: hello@astroatelier.dev</p>
+            <p class="rounded-xl border border-[var(--line)] bg-[var(--surface-strong)] px-4 py-3">Location: Remote, worldwide</p>
+            <p class="rounded-xl border border-[var(--line)] bg-[var(--surface-strong)] px-4 py-3">Availability: New projects from next month</p>
+          </div>
+        </div>
+
+        <form class="card rounded-[2rem] p-7 sm:p-8" action="#" method="post">
+          <h2 class="display-font text-2xl font-semibold text-[var(--text)]">Project Inquiry</h2>
+          <p class="mt-2 text-sm text-[var(--muted)]">Tell us what you are building and we will shape a plan.</p>
+
+          <div class="mt-6 grid gap-4 sm:grid-cols-2">
+            <label class="block text-sm font-semibold text-[var(--text)]">
+              Name
+              <input
+                type="text"
+                name="name"
+                placeholder="Your name"
+                class="mt-2 w-full rounded-xl border border-[var(--line)] bg-[var(--surface)] px-4 py-3 text-sm outline-none transition focus:border-[var(--text)]"
+              />
+            </label>
+            <label class="block text-sm font-semibold text-[var(--text)]">
+              Email
+              <input
+                type="email"
+                name="email"
+                placeholder="you@company.com"
+                class="mt-2 w-full rounded-xl border border-[var(--line)] bg-[var(--surface)] px-4 py-3 text-sm outline-none transition focus:border-[var(--text)]"
+              />
+            </label>
+          </div>
+
+          <label class="mt-4 block text-sm font-semibold text-[var(--text)]">
+            Budget Range
+            <select
+              name="budget"
+              class="mt-2 w-full rounded-xl border border-[var(--line)] bg-[var(--surface)] px-4 py-3 text-sm outline-none transition focus:border-[var(--text)]"
+            >
+              <option>Below $2,000</option>
+              <option>$2,000 - $5,000</option>
+              <option>$5,000 - $10,000</option>
+              <option>$10,000+</option>
+            </select>
+          </label>
+
+          <label class="mt-4 block text-sm font-semibold text-[var(--text)]">
+            Project Details
+            <textarea
+              name="details"
+              rows="5"
+              placeholder="A short brief about your project"
+              class="mt-2 w-full rounded-xl border border-[var(--line)] bg-[var(--surface)] px-4 py-3 text-sm outline-none transition focus:border-[var(--text)]"
+            ></textarea>
+          </label>
+
+          <button type="submit" class="mt-6 w-full rounded-xl bg-[var(--text)] px-5 py-3 text-sm font-bold text-[var(--surface)] transition hover:bg-[#0f0f0d]">
+            Send Inquiry
+          </button>
+        </form>
+      </section>
+    </main>
+  </body>
+</html>

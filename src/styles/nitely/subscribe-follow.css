@@ -1,0 +1,304 @@
+.subscribe-section {
+	background: #000;
+	padding-block: clamp(2.6rem, 5vw, 4.4rem);
+}
+
+.subscribe-form {
+	border: 1px solid rgba(255, 255, 255, 0.15);
+	background: linear-gradient(180deg, rgba(15, 15, 15, 0.98) 0%, rgba(8, 8, 8, 0.98) 100%);
+	padding: clamp(1.2rem, 2.3vw, 2rem);
+	border-radius: 14px;
+	box-shadow: 0 14px 45px rgba(0, 0, 0, 0.35);
+}
+
+.subscribe-form-container {
+	display: grid;
+	gap: 1.05rem;
+}
+
+.subscribe-form-container h2 {
+	margin: 0;
+	font-family: "Inter", sans-serif;
+	font-size: clamp(1.5rem, 3.4vw, 2.5rem);
+	line-height: 1.12;
+	font-weight: 800;
+	text-transform: uppercase;
+	color: #fff;
+}
+
+.subscribe-form-grid {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 0.85rem;
+}
+
+.subscribe-form-grid label {
+	display: grid;
+	gap: 0.45rem;
+	font-family: "Inter", sans-serif;
+	font-size: 0.82rem;
+	font-weight: 600;
+	letter-spacing: 0.03em;
+	color: rgba(255, 255, 255, 0.86);
+	text-transform: uppercase;
+}
+
+.subscribe-form-grid .full-width {
+	grid-column: 1 / -1;
+}
+
+.nomination-terms {
+	text-transform: none;
+	letter-spacing: normal;
+	font-size: 0.88rem;
+}
+
+.nomination-terms-row {
+	display: inline-flex;
+	align-items: flex-start;
+	gap: 0.55rem;
+	color: rgba(255, 255, 255, 0.9);
+	line-height: 1.35;
+}
+
+.nomination-terms-row input[type="checkbox"] {
+	margin-top: 0.15rem;
+	accent-color: #2dd0ff;
+}
+
+.subscribe-form-input {
+	width: 100%;
+	border: 1px solid rgba(255, 255, 255, 0.22);
+	background: rgba(255, 255, 255, 0.04);
+	color: #fff;
+	border-radius: 10px;
+	padding: 0.82rem 0.9rem;
+	font-size: 0.92rem;
+	outline: none;
+	transition: border-color 170ms ease, background-color 170ms ease;
+}
+
+.subscribe-form-input::placeholder {
+	color: rgba(255, 255, 255, 0.58);
+}
+
+.subscribe-form-input:focus {
+	border-color: rgba(26, 211, 255, 0.92);
+	background: rgba(255, 255, 255, 0.08);
+}
+
+select.subscribe-form-input {
+	color: #fff;
+	background: rgba(16, 20, 30, 0.92);
+}
+
+select.subscribe-form-input option {
+	color: #fff;
+	background: #111827;
+}
+
+textarea.subscribe-form-input {
+	resize: vertical;
+	min-height: 7rem;
+}
+
+.subscribe-actions {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1.5rem;
+	flex-wrap: wrap;
+	margin-top: 2rem;
+	padding-top: 1.8rem;
+	border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.subscribe-btn {
+	border: 0;
+	cursor: pointer;
+	position: relative;
+	padding: 1.1rem 2.2rem;
+	border-radius: 12px;
+	font-family: "Inter", sans-serif;
+	font-size: 0.85rem;
+	font-weight: 700;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: #fff;
+	background: linear-gradient(135deg, #1ad3ff 0%, #cb1df4 50%, #ff006e 100%);
+	box-shadow: 0 0 20px rgba(26, 211, 255, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+	transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+	overflow: hidden;
+}
+
+.subscribe-btn::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(135deg, transparent 0%, rgba(255, 255, 255, 0.1) 50%, transparent 100%);
+	opacity: 0;
+	transition: opacity 300ms ease;
+	border-radius: 12px;
+}
+
+.subscribe-btn:hover {
+	transform: translateY(-3px) scale(1.02);
+	box-shadow: 0 12px 32px rgba(26, 211, 255, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+	letter-spacing: 0.08em;
+}
+
+.subscribe-btn:hover::before {
+	opacity: 1;
+}
+
+.subscribe-btn:active {
+	transform: translateY(-1px) scale(0.98);
+	box-shadow: 0 4px 16px rgba(26, 211, 255, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.subscribe-btn:disabled {
+	opacity: 0.6;
+	cursor: not-allowed;
+	transform: none;
+}
+
+.text-under-field {
+	font-family: "Inter", sans-serif;
+	font-size: 0.88rem;
+	line-height: 1.4;
+	color: rgba(255, 255, 255, 0.65);
+	transition: all 300ms ease;
+	min-height: 1.4rem;
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.text-under-field::before {
+	content: '';
+	display: inline-block;
+	width: 4px;
+	height: 4px;
+	border-radius: 50%;
+	background: rgba(26, 211, 255, 0.6);
+	opacity: 0;
+	transition: opacity 300ms ease;
+}
+
+.text-under-field.submitting {
+	color: rgba(26, 211, 255, 0.8);
+}
+
+.text-under-field.submitting::before {
+	opacity: 1;
+	animation: pulse 1.5s ease-in-out infinite;
+}
+
+.text-under-field.error {
+	color: rgba(255, 107, 107, 0.9);
+}
+
+.text-under-field.error::before {
+	background: rgba(255, 107, 107, 0.7);
+	opacity: 1;
+	animation: none;
+}
+
+.text-under-field.success {
+	color: rgba(76, 217, 100, 0.9);
+}
+
+.text-under-field.success::before {
+	background: rgba(76, 217, 100, 0.7);
+	opacity: 1;
+	animation: none;
+}
+
+@keyframes pulse {
+	0%, 100% {
+		opacity: 0.4;
+		transform: scale(1);
+	}
+	50% {
+		opacity: 1;
+		transform: scale(1.2);
+	}
+}
+
+.follow-section {
+	background: #000;
+	padding-block: clamp(2.6rem, 5vw, 4.4rem);
+}
+
+.align-centre {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1.25rem;
+}
+
+.align-centre h2 {
+	margin: 0;
+	font-family: "Inter", sans-serif;
+	font-size: clamp(1.6rem, 3.4vw, 2.45rem);
+	font-weight: 800;
+	text-transform: uppercase;
+	color: #fff;
+	letter-spacing: 0.03em;
+	text-align: center;
+}
+
+.grid-4-4 {
+	width: 100%;
+	display: grid;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	gap: 0.65rem;
+}
+
+.instagram-link {
+	position: relative;
+	display: block;
+	overflow: hidden;
+	aspect-ratio: 1;
+	background: #101010;
+	text-decoration: none;
+}
+
+.instagram-link .image-1-1 {
+	transform: scale(1.09);
+	transition: transform 420ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.instagram-link:hover .image-1-1 {
+	transform: scale(1.02);
+}
+
+.instagram-overlay {
+	position: absolute;
+	inset: 0;
+	background: rgba(0, 0, 0, 0.45);
+	opacity: 0;
+	transition: opacity 300ms ease;
+}
+
+.instagram-icon {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: clamp(2rem, 2.4vw, 2.8rem);
+	height: clamp(2rem, 2.4vw, 2.8rem);
+	transform: translate(-50%, calc(-50% + 26px));
+	opacity: 0;
+	transition: transform 340ms cubic-bezier(0.2, 0.8, 0.2, 1), opacity 250ms ease;
+	filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.5));
+	z-index: 2;
+}
+
+.instagram-link:hover .instagram-overlay {
+	opacity: 1;
+}
+
+.instagram-link:hover .instagram-icon {
+	opacity: 1;
+	transform: translate(-50%, -50%);
+}

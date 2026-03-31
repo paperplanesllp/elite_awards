@@ -1,0 +1,252 @@
+---
+interface Props {
+  events?: Array<{
+    date: number;
+    month: number;
+    year: number;
+    title: string;
+    time?: string;
+  }>;
+}
+
+const { events = [] } = Astro.props;
+
+// Sample events for April 2026
+const defaultEvents = [
+  { date: 5, month: 4, year: 2026, title: "Elite Achievers Awards 2026", time: "6:00 PM" },
+  { date: 12, month: 4, year: 2026, title: "Gala Dinner", time: "8:00 PM" },
+  { date: 18, month: 4, year: 2026, title: "Networking Event", time: "7:00 PM" },
+  { date: 25, month: 4, year: 2026, title: "Awards Ceremony", time: "5:30 PM" },
+];
+
+const allEvents = events.length > 0 ? events : defaultEvents;
+---
+
+<dialog id="calendar-modal" class="calendar-modal">
+  <div class="calendar-overlay"></div>
+  <div class="calendar-container">
+    <button class="calendar-close" aria-label="Close calendar">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+    
+    <div class="calendar-header">
+      <h2>April 2026 - Events</h2>
+      <p class="calendar-subtitle">Elite Achievers Awards</p>
+    </div>
+
+    <div class="calendar-wrapper">
+      <div class="calendar-grid">
+        <div class="weekday">Sun</div>
+        <div class="weekday">Mon</div>
+        <div class="weekday">Tue</div>
+        <div class="weekday">Wed</div>
+        <div class="weekday">Thu</div>
+        <div class="weekday">Fri</div>
+        <div class="weekday">Sat</div>
+        
+        <div id="calendar-days" class="calendar-days"></div>
+      </div>
+
+      <div class="events-sidebar">
+        <h3>April Events</h3>
+        <div id="events-list" class="events-list"></div>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<div id="reminder-toast" class="reminder-toast"></div>
+
+<script define:vars={{ allEvents }}>
+  const modal = document.getElementById('calendar-modal');
+  const closeBtn = document.querySelector('.calendar-close');
+  const calendarDays = document.getElementById('calendar-days');
+  const eventsList = document.getElementById('events-list');
+  const overlay = document.querySelector('.calendar-overlay');
+  const reminderToast = document.getElementById('reminder-toast');
+
+  // Fixed to April 2026
+  let currentDate = new Date(2026, 3, 1); // April 2026
+
+  const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
+    'July', 'August', 'September', 'October', 'November', 'December'];
+
+  function setActiveDay(day) {
+    calendarDays.querySelectorAll('.calendar-day.is-active').forEach((node) => {
+      node.classList.remove('is-active');
+    });
+
+    const activeCell = calendarDays.querySelector(`.calendar-day[data-day="${day}"]`);
+    if (activeCell) {
+      activeCell.classList.add('is-active');
+    }
+  }
+
+  // Toast notification system
+  function showReminder(eventTitle) {
+    reminderToast.innerHTML = `
+      <div class="toast-content">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+        </svg>
+        <span>Reminder set for <strong>${eventTitle}</strong></span>
+        <button class="toast-close" onclick="this.parentElement.parentElement.classList.remove('show');">×</button>
+      </div>
+    `;
+    reminderToast.classList.add('show');
+    
+    setTimeout(() => {
+      reminderToast.classList.remove('show');
+    }, 5000);
+  }
+
+  function renderCalendar() {
+    const year = currentDate.getFullYear();
+    const month = currentDate.getMonth();
+    
+    // Clear days
+    calendarDays.innerHTML = '';
+    
+    // Get first day of month and number of days
+    const firstDay = new Date(year, month, 1).getDay();
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+    
+    // Add empty cells for days before month starts
+    for (let i = 0; i < firstDay; i++) {
+      const emptyCell = document.createElement('div');
+      emptyCell.className = 'calendar-day empty';
+      calendarDays.appendChild(emptyCell);
+    }
+    
+    // Add day cells
+    for (let day = 1; day <= daysInMonth; day++) {
+      const dayCell = document.createElement('button');
+      dayCell.type = 'button';
+      dayCell.className = 'calendar-day';
+      dayCell.dataset.day = String(day);
+      dayCell.textContent = day;
+      dayCell.setAttribute('aria-label', `${monthNames[month]} ${day}, ${year}`);
+      
+      // Check if day has events
+      const hasEvent = allEvents.some(e => e.date === day && e.month === month + 1 && e.year === year);
+      if (hasEvent) {
+        dayCell.classList.add('has-event');
+      }
+      
+      // Add click handler to show events for this day
+      dayCell.addEventListener('click', () => {
+        if (hasEvent) {
+          showDayEvents(day);
+        }
+        setActiveDay(day);
+      });
+      
+      calendarDays.appendChild(dayCell);
+    }
+    
+    // Default to the first event day to make the panel useful immediately.
+    const firstEvent = allEvents
+      .filter(e => e.month === month + 1 && e.year === year)
+      .sort((a, b) => a.date - b.date)[0];
+
+    if (firstEvent) {
+      showDayEvents(firstEvent.date);
+      setActiveDay(firstEvent.date);
+    } else {
+      updateEventsList();
+    }
+  }
+
+  function showDayEvents(day) {
+    const year = currentDate.getFullYear();
+    const month = currentDate.getMonth() + 1;
+    const dayEvents = allEvents.filter(e => e.date === day && e.month === month && e.year === year);
+    
+    if (dayEvents.length > 0) {
+      eventsList.innerHTML = `
+        <div class="day-events">
+          <h4>${monthNames[month - 1]} ${day}, ${year}</h4>
+          ${dayEvents.map(e => `
+            <div class="event-item-detail">
+              <div class="event-info">
+                <p class="event-title">${e.title}</p>
+                ${e.time ? `<p class="event-time">${e.time}</p>` : ''}
+              </div>
+              <button class="set-reminder-btn" data-event="${e.title}" data-time="${e.time || 'TBA'}">
+                Set Reminder
+              </button>
+            </div>
+          `).join('')}
+        </div>
+      `;
+      
+      // Add reminder button listeners
+      eventsList.querySelectorAll('.set-reminder-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+          const eventTitle = this.dataset.event;
+          const eventTime = this.dataset.time;
+          showReminder(eventTitle);
+          this.classList.add('reminded');
+          this.disabled = true;
+        });
+      });
+    }
+  }
+
+  function updateEventsList() {
+    const year = currentDate.getFullYear();
+    const month = currentDate.getMonth() + 1;
+    const monthEvents = allEvents.filter(e => e.month === month && e.year === year)
+      .sort((a, b) => a.date - b.date);
+    
+    if (monthEvents.length === 0) {
+      eventsList.innerHTML = '<p class="no-events">No events this month</p>';
+      return;
+    }
+    
+    eventsList.innerHTML = monthEvents.map(e => `
+      <div class="event-item">
+        <div class="event-info">
+          <p class="event-title">${e.title}</p>
+          ${e.time ? `<p class="event-time">${e.time}</p>` : ''}
+          <p class="event-date">April ${e.date}, 2026</p>
+        </div>
+        <button class="set-reminder-btn" data-event="${e.title}" data-time="${e.time || 'TBA'}">
+          Set Reminder
+        </button>
+      </div>
+    `).join('');
+    
+    // Add reminder button listeners
+    eventsList.querySelectorAll('.set-reminder-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const eventTitle = this.dataset.event;
+        showReminder(eventTitle);
+        this.classList.add('reminded');
+        this.textContent = '✓ Reminder Set';
+        this.disabled = true;
+      });
+    });
+  }
+
+  function openCalendar() {
+    // Always open with April 2026
+    currentDate = new Date(2026, 3, 1);
+    modal.showModal();
+    renderCalendar();
+  }
+
+  function closeCalendar() {
+    modal.close();
+  }
+
+  // Event listeners
+  closeBtn.addEventListener('click', closeCalendar);
+  overlay.addEventListener('click', closeCalendar);
+
+  // Make the open function globally available
+  window.openEventCalendar = openCalendar;
+</script>

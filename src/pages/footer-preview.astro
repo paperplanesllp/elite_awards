@@ -1,0 +1,81 @@
+---
+import Navbar from '../components/Navbar.astro';
+import '../styles/global.css';
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Footer | Nitely</title>
+  </head>
+  <body>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700&display=swap" />
+    <Navbar />
+    <main class="nitely-page" style="padding-top: 7rem;">
+      <section class="section footer">
+        <div class="nitely-shell">
+          <div class="footer-wrapper">
+            <div class="align-left">
+              <a href="/" class="footer-brand" aria-label="Nitely Home">
+                <img src="https://cdn.prod.website-files.com/65782009fd8595214ed53f48/657ae6e5aaa749efbb6b2aff_nitely-logo-white.svg" loading="lazy" alt="Nitely" class="logo" />
+                <p class="copy-under-logo">The best night club in the United Kingdom</p>
+              </a>
+
+              <div class="follow-us-wrap">
+                <div class="footer-title">Follow @NITELY</div>
+                <div class="social-links-wrap">
+                  <a href="https://instagram.com" class="social-icon-link" target="_blank" rel="noreferrer" aria-label="Instagram">
+                    <img src="https://cdn.prod.website-files.com/65782009fd8595214ed53f48/65782182792a4f62b6995868_Instagram.svg" loading="lazy" alt="Instagram" class="social-icon-image" />
+                  </a>
+                  <a href="https://twitter.com" class="social-icon-link" target="_blank" rel="noreferrer" aria-label="Twitter X">
+                    <img src="https://cdn.prod.website-files.com/65782009fd8595214ed53f48/65782182792a4f62b699586b_TwitterX.svg" loading="lazy" alt="Twitter X" class="social-icon-image" />
+                  </a>
+                  <a href="https://facebook.com" class="social-icon-link" target="_blank" rel="noreferrer" aria-label="Facebook">
+                    <img src="https://cdn.prod.website-files.com/65782009fd8595214ed53f48/65782182792a4f62b6995869_Facebook.svg" loading="lazy" alt="Facebook" class="social-icon-image" />
+                  </a>
+                  <a href="https://youtube.com" class="social-icon-link" target="_blank" rel="noreferrer" aria-label="YouTube">
+                    <img src="https://cdn.prod.website-files.com/65782009fd8595214ed53f48/65782182792a4f62b699586a_YouTube.svg" loading="lazy" alt="YouTube" class="social-icon-image" />
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="footer-column">
+              <div class="footer-title">Night Club</div>
+              <a href="/events" class="link-footer">Events calendar</a>
+              <a href="/contact" class="link-footer">Tables reservation</a>
+              <a href="/about" class="link-footer">About club</a>
+              <a href="/about" class="link-footer">Club news</a>
+            </div>
+
+            <div class="footer-column">
+              <div class="footer-title">Contact</div>
+              <a href="#" class="link-footer">12 Cambridge St, London</a>
+              <a href="#" class="link-footer">020 7946 0940</a>
+              <a href="#" class="link-footer">hi@nightly.com</a>
+            </div>
+
+            <div class="footer-column">
+              <div class="footer-title">Working Hours</div>
+              <a href="#" class="link-footer">Mon-Fri: 8PM-4AM</a>
+              <a href="#" class="link-footer">Sat-Sun: 8PM-6AM</a>
+            </div>
+          </div>
+
+          <div class="template-links">
+            <a href="/about" class="template-link">Style Guide</a>
+            <a href="/about" class="template-link">Licencing</a>
+            <a href="/about" class="template-link">Changelog</a>
+            <div>
+              <a href="https://webflow.com/" target="_blank" rel="noreferrer" class="template-link">Webflow</a> |
+              <a href="https://webflow.com/@anastasia-elish" target="_blank" rel="noreferrer" class="template-link">Designer</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

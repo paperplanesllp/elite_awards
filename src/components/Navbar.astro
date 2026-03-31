@@ -1,0 +1,88 @@
+---
+import { Image } from 'astro:assets';
+import paperplanesLogo from '../assets/Elite achiever award Logo white.png';
+---
+
+<header class="nitely-header" data-scroll-header>
+  <div class="promo-strip">
+    <p>
+      <span class="promo-flag">Now Open</span>
+      <strong>Elite Achievers Awards 2026</strong>
+      <span class="promo-copy">Limited nominations for top performers</span>
+    </p>
+  </div>
+
+  <nav class="nitely-nav" aria-label="Primary">
+    <a href="/" class="nitely-logo">
+      <Image src={paperplanesLogo} alt="Paperplanes Logo" width={150} />
+    </a>
+
+    <ul class="nitely-links">
+      <li><a href="/" data-scroll-target="upcoming-events">Events</a></li>
+      <li><a href="/" data-scroll-target="about-section">About</a></li>
+      <li><a href="/" data-scroll-target="contact-section">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<script>
+  const header = document.querySelector('[data-scroll-header]') as HTMLElement | null;
+  const isHomePath = () => window.location.pathname === '/' || window.location.pathname === '/index.html';
+  const clearHashFromUrl = () => {
+    if (window.location.hash) {
+      history.replaceState(null, '', `${window.location.pathname}${window.location.search}`);
+    }
+  };
+  const scrollToSection = (targetId: string) => {
+    const section = document.getElementById(targetId);
+    if (!section) return false;
+
+    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    return true;
+  };
+
+  if (header) {
+    const setScrolledState = () => {
+      header.classList.toggle('is-scrolled', window.scrollY > 14);
+    };
+
+    setScrolledState();
+    window.addEventListener('scroll', setScrolledState, { passive: true });
+  }
+
+  if (isHomePath()) {
+    const queuedTarget = sessionStorage.getItem('nitely-scroll-target');
+    if (queuedTarget) {
+      requestAnimationFrame(() => {
+        scrollToSection(queuedTarget);
+        sessionStorage.removeItem('nitely-scroll-target');
+      });
+    }
+
+    if (window.location.hash.length > 1) {
+      const hashTarget = decodeURIComponent(window.location.hash.slice(1));
+      requestAnimationFrame(() => {
+        if (scrollToSection(hashTarget)) {
+          clearHashFromUrl();
+        }
+      });
+    }
+  }
+
+  document.querySelectorAll('[data-scroll-target]').forEach((node) => {
+    const link = node as HTMLAnchorElement;
+    link.addEventListener('click', (event) => {
+      const targetId = link.dataset.scrollTarget;
+      if (!targetId) return;
+
+      if (isHomePath()) {
+        event.preventDefault();
+        scrollToSection(targetId);
+        clearHashFromUrl();
+        return;
+      }
+
+      sessionStorage.setItem('nitely-scroll-target', targetId);
+    });
+  });
+</script>
