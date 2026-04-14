@@ -194,7 +194,7 @@ export const POST: APIRoute = async ({ request }) => {
         '',
         'Greetings from Elite Achievers Awards 2026.',
         '',
-        'Thank you for successfully submitting your nomination for the Elite Achievers Awards 2026. We appreciate your interest in being a part of this प्रतिष्ठित recognition platform.',
+        'Thank you for successfully submitting your nomination for the Elite Achievers Awards 2026. We appreciate your interest in being a part of this prestigious recognition platform.',
         '',
         'We kindly request you to review your submitted details and ensure that all the required information has been accurately filled in. To proceed with the validation of your nomination, please complete the payment of the applicable nomination fee (please disregard this step if the payment has already been made).',
         '',
@@ -220,7 +220,7 @@ export const POST: APIRoute = async ({ request }) => {
     <div style="padding:22px 26px;font-size:16px;line-height:1.68;">
       <p style="margin:0 0 16px;">Dear ${escapeHtml(nomineeName)},</p>
       <p style="margin:0 0 16px;">Greetings from Elite Achievers Awards 2026.</p>
-      <p style="margin:0 0 16px;">Thank you for successfully submitting your nomination for the <strong>Elite Achievers Awards 2026</strong>. We appreciate your interest in being a part of this प्रतिष्ठित recognition platform.</p>
+      <p style="margin:0 0 16px;">Thank you for successfully submitting your nomination for the <strong>Elite Achievers Awards 2026</strong>. We appreciate your interest in being a part of this prestigious recognition platform.</p>
       <p style="margin:0 0 16px;">We kindly request you to review your submitted details and ensure that all the required information has been accurately filled in. To proceed with the validation of your nomination, please complete the payment of the applicable nomination fee <em>(please disregard this step if the payment has already been made)</em>.</p>
       <p style="margin:0 0 16px;">Our representative will be reaching out to you shortly to guide you through the next steps of the evaluation process and to assist you with the required documentation.</p>
       <div style="margin:0 0 18px;padding:12px 14px;border-left:4px solid #1b3257;background:#eef2f8;">
