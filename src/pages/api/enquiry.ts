@@ -99,6 +99,15 @@ const normalizeSmtpHost = (host: string): string => {
   return host;
 };
 
+const escapeHtml = (value: string): string => {
+  return value
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&#39;');
+};
+
 export const POST: APIRoute = async ({ request }) => {
   try {
     const body = await request.json();
@@ -176,19 +185,62 @@ export const POST: APIRoute = async ({ request }) => {
     });
 
     try {
+      const nomineeName = name || 'Nominee';
+      const registeredPhone = phone || 'Not provided';
+      const acknowledgementSubject = 'Nomination Confirmation - Elite Achievers Awards 2026';
+
+      const acknowledgementText = [
+        `Dear ${nomineeName},`,
+        '',
+        'Greetings from Elite Achievers Awards 2026.',
+        '',
+        'Thank you for successfully submitting your nomination for the Elite Achievers Awards 2026. We appreciate your interest in being a part of this प्रतिष्ठित recognition platform.',
+        '',
+        'We kindly request you to review your submitted details and ensure that all the required information has been accurately filled in. To proceed with the validation of your nomination, please complete the payment of the applicable nomination fee (please disregard this step if the payment has already been made).',
+        '',
+        'Our representative will be reaching out to you shortly to guide you through the next steps of the evaluation process and to assist you with the required documentation.',
+        '',
+        `Registered Email: ${email}`,
+        `Contact Number: ${registeredPhone}`,
+        '',
+        'Upon successful verification, you will receive a confirmation email on your registered email address.',
+        '',
+        'We appreciate your participation and wish you continued success in your professional journey.',
+        '',
+        'Warm regards,',
+        'Team Elite Achievers Awards 2026',
+      ].join('\n');
+
+      const acknowledgementHtml = `
+<div style="margin:0;padding:24px;background:#f1f3f7;font-family:Inter,Segoe UI,Arial,sans-serif;color:#111827;">
+  <div style="max-width:560px;margin:0 auto;background:#ffffff;border-radius:8px;overflow:hidden;border:1px solid #d6dce8;">
+    <div style="background:#0f2547;color:#ffffff;padding:18px 22px;text-align:center;font-size:28px;font-weight:700;line-height:1.2;">
+      Elite Achievers Awards 2026
+    </div>
+    <div style="padding:22px 26px;font-size:16px;line-height:1.68;">
+      <p style="margin:0 0 16px;">Dear ${escapeHtml(nomineeName)},</p>
+      <p style="margin:0 0 16px;">Greetings from Elite Achievers Awards 2026.</p>
+      <p style="margin:0 0 16px;">Thank you for successfully submitting your nomination for the <strong>Elite Achievers Awards 2026</strong>. We appreciate your interest in being a part of this प्रतिष्ठित recognition platform.</p>
+      <p style="margin:0 0 16px;">We kindly request you to review your submitted details and ensure that all the required information has been accurately filled in. To proceed with the validation of your nomination, please complete the payment of the applicable nomination fee <em>(please disregard this step if the payment has already been made)</em>.</p>
+      <p style="margin:0 0 16px;">Our representative will be reaching out to you shortly to guide you through the next steps of the evaluation process and to assist you with the required documentation.</p>
+      <div style="margin:0 0 18px;padding:12px 14px;border-left:4px solid #1b3257;background:#eef2f8;">
+        <div style="margin:0 0 6px;"><strong>Registered Email:</strong> ${escapeHtml(email)}</div>
+        <div style="margin:0;"><strong>Contact Number:</strong> ${escapeHtml(registeredPhone)}</div>
+      </div>
+      <p style="margin:0 0 16px;">Upon successful verification, you will receive a confirmation email on your registered email address.</p>
+      <p style="margin:0 0 16px;">We appreciate your participation and wish you continued success in your professional journey.</p>
+      <p style="margin:0;">Warm regards,<br /><strong>Team Elite Achievers Awards 2026</strong></p>
+    </div>
+  </div>
+</div>`.trim();
+
       await transporter.sendMail({
         from: mailFrom,
         to: email,
         replyTo: mailTo,
-        subject: 'Nomination received',
-        text: [
-          `Hi ${name},`,
-          '',
-          'Thank you for your nomination. We have received your details and our team will contact you shortly.',
-          '',
-          'Regards,',
-          'Elite Achievers Awards Team',
-        ].join('\n'),
+        subject: acknowledgementSubject,
+        text: acknowledgementText,
+        html: acknowledgementHtml,
       });
     } catch (replyError) {
       console.warn('Nomination acknowledgement email failed:', replyError);
