@@ -71,7 +71,7 @@
 	}
 
 	.infinite-marquee-wrap {
-		padding: 0.85rem 0;
+		padding: 0.62rem 0;
 	}
 
 	.infinite-marquee-block {
@@ -100,6 +100,74 @@
 
 	.subscribe-actions {
 		align-items: flex-start;
+	}
+
+	.package-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 1.25rem;
+		padding: 1rem 0.2rem 0.3rem;
+	}
+
+	.package-card {
+		padding: 1.25rem 0.95rem 0.95rem;
+		min-height: 0;
+	}
+
+	.package-plan-badge {
+		top: 0.62rem;
+		font-size: 0.58rem;
+		padding: 0.28rem 0.8rem;
+	}
+
+	.block-grid.packages-block .block-heading {
+		font-size: clamp(1.25rem, 3.8vw, 1.7rem);
+	}
+
+	.package-card-premium {
+		order: 1;
+		grid-column: 1 / -1;
+		justify-self: center;
+		width: min(100%, 34rem);
+		min-height: 0;
+		margin-top: 0;
+		padding-top: 1.25rem;
+	}
+
+	.package-card-gold {
+		order: 2;
+		min-height: 0;
+		transform: translateY(-8px);
+	}
+
+	.package-card-silver {
+		order: 3;
+		min-height: 0;
+	}
+
+	.package-card-premium:hover {
+		transform: translateY(-8px);
+	}
+
+	.package-tier {
+		font-size: 1.35rem;
+		margin-bottom: 0.6rem;
+	}
+
+	.package-price {
+		font-size: 2.2rem;
+		margin: 0.6rem 0 1rem;
+	}
+
+	.package-features li {
+		font-size: 0.72rem;
+		line-height: 1.34;
+		gap: 0.5rem;
+	}
+
+	.package-card-cta {
+		font-size: 0.72rem;
+		min-width: 7.5rem;
+		padding: 0.48rem 1.12rem;
 	}
 
 	.grid-4-4 {
@@ -270,11 +338,11 @@
 	}
 
 	.infinite-marquee-wrap {
-		padding: 0.72rem 0;
+		padding: 0.48rem 0;
 	}
 
 	.infinite-marquee-block {
-		gap: 1.4rem;
+		gap: 1.05rem;
 		animation-duration: 20s;
 	}
 
@@ -312,6 +380,89 @@
 
 	.text-under-field {
 		font-size: 0.8rem;
+	}
+
+	.package-grid {
+		grid-template-columns: 1fr;
+		gap: 1.1rem;
+		padding: 0.75rem 0 0.2rem;
+	}
+
+	.package-card {
+		padding: 1.18rem 0.9rem 0.88rem;
+		min-height: 0;
+	}
+
+	.package-plan-badge {
+		top: 0.55rem;
+		font-size: 0.54rem;
+		padding: 0.24rem 0.72rem;
+	}
+
+	.block-grid.packages-block .block-heading {
+		font-size: clamp(1.1rem, 7vw, 1.45rem);
+	}
+
+	.package-card-premium {
+		order: 1;
+		grid-column: auto;
+		width: 100%;
+		margin-top: 0;
+		min-height: 0;
+		padding-top: 1.18rem;
+	}
+
+	.package-card-gold {
+		order: 2;
+		min-height: 0;
+		transform: none;
+	}
+
+	.package-card-silver {
+		order: 3;
+		min-height: 0;
+	}
+
+	.package-card-premium:hover {
+		transform: translateY(-8px);
+	}
+
+	.package-tier {
+		font-size: 1.2rem;
+		margin-bottom: 0.5rem;
+	}
+
+	.package-price {
+		font-size: 1.95rem;
+		margin: 0.5rem 0 1rem;
+	}
+
+	.package-price-label {
+		font-size: 0.64rem;
+		margin-bottom: 0.15rem;
+	}
+
+	.package-features {
+		gap: 0.55rem;
+	}
+
+	.package-features li {
+		font-size: 0.7rem;
+		line-height: 1.32;
+		gap: 0.48rem;
+	}
+
+	.package-card-cta {
+		min-width: 7rem;
+		font-size: 0.7rem;
+		padding: 0.46rem 1rem;
+	}
+
+	.package-features li::before {
+		width: 0.96rem;
+		height: 0.96rem;
+		font-size: 0.62rem;
+		margin-top: 0.02rem;
 	}
 
 	.grid-4-4 {

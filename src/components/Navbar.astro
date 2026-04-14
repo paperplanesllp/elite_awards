@@ -6,7 +6,7 @@ import paperplanesLogo from '../assets/Elite achiever award Logo white.png';
 <header class="nitely-header" data-scroll-header>
   <div class="promo-strip">
     <p>
-      <span class="promo-flag">Now Open</span>
+      <a href="/" class="promo-flag" data-scroll-target="contact-section">Now Open</a>
       <strong>Elite Achievers Awards 2026</strong>
       <span class="promo-copy">Limited nominations for top performers</span>
     </p>
@@ -18,9 +18,8 @@ import paperplanesLogo from '../assets/Elite achiever award Logo white.png';
     </a>
 
     <ul class="nitely-links">
-      <li><a href="/" data-scroll-target="upcoming-events">Events</a></li>
       <li><a href="/" data-scroll-target="about-section">About</a></li>
-      <li><a href="/" data-scroll-target="contact-section">Contact</a></li>
+      <li><a href="/" data-scroll-target="footer-section">Contact</a></li>
     </ul>
   </nav>
 </header>
@@ -42,12 +41,28 @@ import paperplanesLogo from '../assets/Elite achiever award Logo white.png';
   };
 
   if (header) {
+    let isScrolled = false;
+    let ticking = false;
+
     const setScrolledState = () => {
-      header.classList.toggle('is-scrolled', window.scrollY > 14);
+      const nextState = window.scrollY > 14;
+      if (nextState !== isScrolled) {
+        isScrolled = nextState;
+        header.classList.toggle('is-scrolled', isScrolled);
+      }
+      ticking = false;
     };
 
     setScrolledState();
-    window.addEventListener('scroll', setScrolledState, { passive: true });
+    window.addEventListener(
+      'scroll',
+      () => {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(setScrolledState);
+      },
+      { passive: true }
+    );
   }
 
   if (isHomePath()) {

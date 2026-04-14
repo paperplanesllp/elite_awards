@@ -12,18 +12,10 @@
           <stop offset="50%" style="stop-color:#FFF44F;stop-opacity:1" />
           <stop offset="100%" style="stop-color:#FFD700;stop-opacity:1" />
         </linearGradient>
-        
-        <filter id="waveGlow">
-          <feGaussianBlur stdDeviation="1.5" result="coloredBlur"/>
-          <feMerge>
-            <feMergeNode in="coloredBlur"/>
-            <feMergeNode in="SourceGraphic"/>
-          </feMerge>
-        </filter>
       </defs>
 
       <!-- Wave lines flowing across -->
-      <g class="wave-lines" filter="url(#waveGlow)">
+      <g class="wave-lines">
         <path 
           class="wave-line wave-1"
           d="M 0,60 Q 150,30 300,60 T 600,60 T 900,60 T 1200,60"
@@ -87,7 +79,7 @@
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    text-shadow: 0 0 30px rgba(255, 215, 0, 0.1);
+    text-shadow: none;
   }
 
   .waveform-overlay {
@@ -98,7 +90,7 @@
     height: 100%;
     z-index: 1;
     pointer-events: none;
-    filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.4));
+    filter: none;
   }
 
   .wave-lines {
@@ -106,7 +98,7 @@
   }
 
   .wave-line {
-    animation: waveFlow 4s ease-in-out infinite;
+    animation: none;
   }
 
   .wave-1 {

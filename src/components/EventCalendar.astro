@@ -11,12 +11,9 @@ interface Props {
 
 const { events = [] } = Astro.props;
 
-// Sample events for April 2026
+// Hosted date event for July 2026
 const defaultEvents = [
-  { date: 5, month: 4, year: 2026, title: "Elite Achievers Awards 2026", time: "6:00 PM" },
-  { date: 12, month: 4, year: 2026, title: "Gala Dinner", time: "8:00 PM" },
-  { date: 18, month: 4, year: 2026, title: "Networking Event", time: "7:00 PM" },
-  { date: 25, month: 4, year: 2026, title: "Awards Ceremony", time: "5:30 PM" },
+  { date: 25, month: 7, year: 2026, title: "Elite Achievers Awards 2026" },
 ];
 
 const allEvents = events.length > 0 ? events : defaultEvents;
@@ -33,7 +30,7 @@ const allEvents = events.length > 0 ? events : defaultEvents;
     </button>
     
     <div class="calendar-header">
-      <h2>April 2026 - Events</h2>
+      <h2>July 2026 - Events</h2>
       <p class="calendar-subtitle">Elite Achievers Awards</p>
     </div>
 
@@ -51,7 +48,7 @@ const allEvents = events.length > 0 ? events : defaultEvents;
       </div>
 
       <div class="events-sidebar">
-        <h3>April Events</h3>
+        <h3>July Events</h3>
         <div id="events-list" class="events-list"></div>
       </div>
     </div>
@@ -68,8 +65,8 @@ const allEvents = events.length > 0 ? events : defaultEvents;
   const overlay = document.querySelector('.calendar-overlay');
   const reminderToast = document.getElementById('reminder-toast');
 
-  // Fixed to April 2026
-  let currentDate = new Date(2026, 3, 1); // April 2026
+  // Fixed to July 2026
+  let currentDate = new Date(2026, 6, 1); // July 2026
 
   const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
     'July', 'August', 'September', 'October', 'November', 'December'];
@@ -212,7 +209,7 @@ const allEvents = events.length > 0 ? events : defaultEvents;
         <div class="event-info">
           <p class="event-title">${e.title}</p>
           ${e.time ? `<p class="event-time">${e.time}</p>` : ''}
-          <p class="event-date">April ${e.date}, 2026</p>
+          <p class="event-date">${monthNames[month - 1]} ${e.date}, ${year}</p>
         </div>
         <button class="set-reminder-btn" data-event="${e.title}" data-time="${e.time || 'TBA'}">
           Set Reminder
@@ -233,8 +230,8 @@ const allEvents = events.length > 0 ? events : defaultEvents;
   }
 
   function openCalendar() {
-    // Always open with April 2026
-    currentDate = new Date(2026, 3, 1);
+    // Always open with July 2026
+    currentDate = new Date(2026, 6, 1);
     modal.showModal();
     renderCalendar();
   }

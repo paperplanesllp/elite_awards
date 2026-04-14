@@ -3,51 +3,57 @@ import nodemailer from 'nodemailer';
 
 export const prerender = false;
 
-const toBool = (value: string | undefined, fallback = false): boolean => {
+const asText = (value: unknown): string => {
+  return typeof value === 'string' ? value.trim() : '';
+};
+
+const asBool = (value: string | undefined, fallback = true): boolean => {
   if (value === undefined) return fallback;
   return value.toLowerCase() === 'true';
 };
 
+const normalizeSmtpHost = (host: string): string => {
+  const lowerHost = host.toLowerCase();
+  if (lowerHost === 'mail.gmail.com') {
+    return 'smtp.gmail.com';
+  }
+  return host;
+};
+
 export const POST: APIRoute = async ({ request }) => {
   try {
-    const data = await request.json();
+    const body = await request.json();
 
-    const name = String(data?.name ?? '').trim();
-    const email = String(data?.email ?? '').trim();
-    const phone = String(data?.phone ?? '').trim();
-    const enquiry = String(data?.enquiry ?? '').trim();
+    const name = asText(body?.name);
+    const email = asText(body?.email);
+    const phone = asText(body?.phone);
+    const enquiry = asText(body?.enquiry);
 
-    if (!name || !email || !enquiry) {
-      return new Response(JSON.stringify({ message: 'Name, email and enquiry are required.' }), {
+    if (!name || !email) {
+      return new Response(JSON.stringify({ message: 'Name and email are required.' }), {
         status: 400,
         headers: { 'Content-Type': 'application/json' },
       });
     }
 
-    const smtpHost = import.meta.env.SMTP_HOST;
+    const smtpHost = normalizeSmtpHost(asText(import.meta.env.SMTP_HOST));
     const smtpPort = Number(import.meta.env.SMTP_PORT ?? '465');
-    const smtpSecure = toBool(import.meta.env.SMTP_SECURE, true);
-    const smtpUser = import.meta.env.SMTP_USER;
-    const smtpPass = String(import.meta.env.SMTP_PASS ?? '').replace(/\s+/g, '');
-    const salesEmail =
-      import.meta.env.SALES_EMAIL ||
-      import.meta.env.ADMIN_MAIL ||
-      import.meta.env.CEO_EMAIL ||
+    const smtpSecure = asBool(import.meta.env.SMTP_SECURE, true);
+    const smtpUser = asText(import.meta.env.SMTP_USER);
+    const smtpPass = asText(import.meta.env.SMTP_PASS);
+
+    const mailFrom = asText(import.meta.env.MAIL_FROM) || smtpUser;
+    const mailTo =
+      asText(import.meta.env.MAIL_TO) ||
+      asText(import.meta.env.SALES_EMAIL) ||
       smtpUser;
 
-    if (!smtpHost || !smtpUser || !smtpPass || !salesEmail) {
-      return new Response(JSON.stringify({ message: 'Server email settings are incomplete.' }), {
+    if (!smtpHost || !smtpUser || !smtpPass || !mailTo) {
+      return new Response(JSON.stringify({ message: 'SMTP configuration is incomplete on the server.' }), {
         status: 500,
         headers: { 'Content-Type': 'application/json' },
       });
     }
-
-    // With Gmail SMTP, the authenticated account is the safest sender address.
-    const fromEmail = smtpUser;
-    const fromName =
-      import.meta.env.MAIL_FROM_NAME ||
-      import.meta.env.FROM_NAME ||
-      'Paperplanes Team';
 
     const transporter = nodemailer.createTransport({
       host: smtpHost,
@@ -59,35 +65,56 @@ export const POST: APIRoute = async ({ request }) => {
       },
     });
 
-    await transporter.verify();
+    const details = enquiry || [
+      `Title: ${asText(body?.title)}`,
+      `Profile Type: ${asText(body?.profileType)}`,
+      `Organisation: ${asText(body?.organisation)}`,
+      `Address: ${asText(body?.address)}`,
+      `GSTIN: ${asText(body?.gstin) || 'Not provided'}`,
+      `Sector: ${asText(body?.sector)}`,
+      `Award Category: ${asText(body?.awardCategory)}`,
+      `Website: ${asText(body?.website) || 'Not provided'}`,
+      `Honorary Doctorate Interest: ${asText(body?.doctorateInterest)}`,
+      `Terms Accepted: ${asText(body?.termsAccepted) || 'No'}`,
+    ].join('\n');
 
-    await Promise.all([
-      transporter.sendMail({
-        from: `${fromName} <${fromEmail}>`,
-        to: email,
-        replyTo: salesEmail,
-        subject: 'Thank you for your enquiry',
-        text: `Hi ${name},\n\nThank you for contacting us. We have received your enquiry and our team will get back to you soon.\n\nBest regards,\n${fromName}`,
-      }),
-      transporter.sendMail({
-        from: `${fromName} <${fromEmail}>`,
-        to: salesEmail,
-        replyTo: email,
-        subject: `New enquiry from ${name}`,
-        text: `New website enquiry:\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone || 'Not provided'}\n\nEnquiry:\n${enquiry}`,
-      }),
-    ]);
+    await transporter.sendMail({
+      from: mailFrom,
+      to: mailTo,
+      replyTo: email,
+      subject: `New nomination from ${name}`,
+      text: [
+        `Name: ${name}`,
+        `Email: ${email}`,
+        `Phone: ${phone || 'Not provided'}`,
+        '',
+        details,
+      ].join('\n'),
+    });
 
-    return new Response(JSON.stringify({ message: 'Enquiry submitted successfully.' }), {
+    await transporter.sendMail({
+      from: mailFrom,
+      to: email,
+      replyTo: mailTo,
+      subject: 'Nomination received',
+      text: [
+        `Hi ${name},`,
+        '',
+        'Thank you for your nomination. We have received your details and our team will contact you shortly.',
+        '',
+        'Regards,',
+        'Elite Achievers Awards Team',
+      ].join('\n'),
+    });
+
+    return new Response(JSON.stringify({ message: 'Nomination submitted successfully.' }), {
       status: 200,
       headers: { 'Content-Type': 'application/json' },
     });
   } catch (error) {
-    console.error('Enquiry API error:', error);
+    const message = error instanceof Error ? error.message : 'Unable to submit nomination right now.';
 
-    const errorMessage = error instanceof Error ? error.message : 'Unable to submit enquiry right now.';
-
-    return new Response(JSON.stringify({ message: errorMessage }), {
+    return new Response(JSON.stringify({ message }), {
       status: 500,
       headers: { 'Content-Type': 'application/json' },
     });

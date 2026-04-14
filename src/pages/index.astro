@@ -15,8 +15,9 @@ const marqueeLogos = [0, 1, 2, 3, 4, 5, 6, 7];
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700&display=swap" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/elite_logo.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/images/elite_logo.png" />
+    <link rel="apple-touch-icon" href="/images/elite_logo.png" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content="Elite Achievers Awards 2026 - A national celebration recognizing entrepreneurs, leaders, and innovators shaping the future. Join us in April 2026 in Bangalore." />
@@ -25,9 +26,11 @@ const marqueeLogos = [0, 1, 2, 3, 4, 5, 6, 7];
     <meta property="og:title" content="Elite Achievers Awards 2026 | Honouring Excellence. Elevating Influence." />
     <meta property="og:description" content="National celebration recognizing entrepreneurs, leaders, and innovators shaping the future." />
     <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://eliteachieversawards.com/images/elite_logo.png" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Elite Achievers Awards 2026" />
     <meta name="twitter:description" content="Honouring Excellence. Elevating Influence." />
+    <meta name="twitter:image" content="https://eliteachieversawards.com/images/elite_logo.png" />
     <title>Elite Achievers Awards 2026 | Honouring Excellence. Elevating Influence.</title>
   </head>
   <body>
@@ -61,7 +64,7 @@ const marqueeLogos = [0, 1, 2, 3, 4, 5, 6, 7];
                 <div class="hero-facts">
                   <div class="hero-fact-item">
                     <span class="hero-fact-label">Date</span>
-                    <span class="hero-fact-value">April 2026</span>
+                    <span class="hero-fact-value">25<sup>th</sup>July </span>
                   </div>
                   <div class="hero-fact-item">
                     <span class="hero-fact-label">Location</span>
@@ -81,106 +84,68 @@ const marqueeLogos = [0, 1, 2, 3, 4, 5, 6, 7];
       <section class="section no-top-padding events-section">
         <div class="nitely-shell">
           <div class="events-colection-wrap">
-            <div class="block-grid reveal-up" id="upcoming-events">
-              <h2 class="block-heading">Past events</h2>
-
-
-              <div class="collection-list-wrapper">
-                <div class="collection-list">
-                  <article class="collection-item reveal-up">
-                    <div class="event-card-wrap">
-                      <a href="" class="event-link-block" aria-label="Jazz Thursday">
-                        <img src="../images/nalla.jpg" alt="Jazz Thursday" class="image-1-1" loading="lazy" />
-                      </a>
-                      <div class="event-card-footer">
-                        <h3 class="card-heading">Mohammed Haris Nalapad</h3>
-                      </div>
-                    </div>
-                  </article>
-
-                  <article class="collection-item reveal-up">
-                    <div class="event-card-wrap">
-                      <a href="" class="event-link-block" aria-label="Acoustic Tuesday">
-                        <img src="../images/saina.png" alt="saina" class="image-1-1" loading="lazy" />
-                      </a>
-                      <div class="event-card-footer">
-                        <h3 class="card-heading">Saina Nehwal</h3>
-                      </div>
-                    </div>
-                  </article>
-
-                  <article class="collection-item reveal-up">
-                    <div class="event-card-wrap">
-                      <a href="" class="event-link-block" aria-label="DJ Antony">
-                        <img src="../images/sowmya.png" alt="sowmya" class="image-1-1" loading="lazy" />
-                      </a>
-                      <div class="event-card-footer">
-                        <h3 class="card-heading">Sowmya Reddy</h3>
-                      </div>
-                    </div>
-                  </article>
-
-                  <article class="collection-item reveal-up">
-                    <div class="event-card-wrap">
-                      <a href="" class="event-link-block" aria-label="Tetra Drum Show">
-                        <img src="../images/arnab.png" alt="arnab" class="image-1-1" loading="lazy" />
-                      </a>
-                      <div class="event-card-footer">
-                        <h3 class="card-heading">Arnab Goswami</h3>
-                      </div>
-                    </div>
-                  </article>
-                </div>
+            <div class="block-grid packages-block reveal-up" id="upcoming-events">
+              <div class="package-reference-head">
+                <h2 class="block-heading">Payment Packages</h2>
               </div>
-            </div>
 
-            <div class="block-grid top-margin reveal-up">
-              <h2 class="block-heading"></h2>
-
-              <div class="collection-list-wrapper">
-                <div class="collection-list">
-                  <article class="collection-item reveal-up">
-                    <div class="event-card-wrap">
-                      <a href="" class="event-link-block" aria-label="Tech Summit 2025">
-                        <img src="../images/sunil.jpg" alt="Tech Summit 2025" class="image-1-1" loading="lazy" />
-                      </a>
-                      <div class="event-card-footer">
-                        <h3 class="card-heading">Sunil Chhetri</h3>
-                      </div>
-                    </div>
+              <div class="package-cards-section package-cards-inline" aria-label="Payment packages">
+                <div class="package-grid">
+                  <article class="package-card package-card-premium">
+                    <span class="package-plan-badge">Most Popular</span>
+                    <p class="package-tier">Platinum</p>
+                    <p class="package-price"><span class="package-price-label">From</span>INR 79,900</p>
+                    <div class="package-divider"></div>
+                    <ul class="package-features">
+                      <li>Award presentation by Chief Guest (on stage)</li>
+                      <li>Exclusive networking opportunities</li>
+                      <li>Complimentary hospitality (lunch, tea, and snacks)</li>
+                      <li>Wall of Fame recognition</li>
+                      <li>1-page magazine feature</li>
+                      <li>Personal branding on website</li>
+                      <li>1 accompany pass</li>
+                      <li>Name display at event</li>
+                      <li>Premium media coverage (individual photo and video + edited visuals)</li>
+                      <li>Online media publication across 75+ portals</li>
+                    </ul>
+                    <div class="package-divider"></div>
+                    <a href="#contact-section" class="hero-button package-card-cta">Choose Plan</a>
                   </article>
 
-                  <article class="collection-item reveal-up">
-                    <div class="event-card-wrap">
-                      <a href="" class="event-link-block" aria-label="Innovation Conference">
-                        <img src="../images/sunils.png" alt="Innovation Conference" class="image-1-1" loading="lazy" />
-                      </a>
-                      <div class="event-card-footer">
-                        <h3 class="card-heading">Suniel Shetty</h3>
-                      </div>
-                    </div>
+                  <article class="package-card package-card-gold">
+                    <p class="package-tier">Gold</p>
+                    <p class="package-price"><span class="package-price-label">From</span>INR 59,900</p>
+                    <div class="package-divider"></div>
+                    <ul class="package-features">
+                      <li>Award presentation by Chief Guest (on stage)</li>
+                      <li>Trophy and certificate on stage</li>
+                      <li>Exclusive networking opportunities</li>
+                      <li>Complimentary hospitality (lunch, tea, and snacks)</li>
+                      <li>Wall of Fame recognition</li>
+                      <li>1-page magazine feature</li>
+                      <li>Personal branding on website</li>
+                      <li>1 accompany pass</li>
+                      <li>Name display at event</li>
+                      <li>Online media publication across 75+ portals</li>
+                    </ul>
+                    <div class="package-divider"></div>
+                    <a href="#contact-section" class="hero-button package-card-cta">Choose Plan</a>
                   </article>
 
-                  <article class="collection-item reveal-up">
-                    <div class="event-card-wrap">
-                      <a href="" class="event-link-block" aria-label="Leadership Summit">
-                        <img src="../images/sudeep.png" alt="Leadership Summit" class="image-1-1" loading="lazy" />
-                      </a>
-                      <div class="event-card-footer">
-                        <h3 class="card-heading">Kiccha Sudeep</h3>
-                      </div>
-                    </div>
-                  </article>
-
-                  <article class="collection-item reveal-up">
-                    <div class="event-card-wrap">
-                      <a href="" class="event-link-block" aria-label="Excellence Awards">
-                        <img src="../images/ram.png" alt="Excellence Awards" class="image-1-1" loading="lazy" />
-                      </a>
-                      <div class="event-card-footer">
-                        <h3 class="card-heading">Arjun Rampal</h3>
-                      </div>
-                    </div>
+                  <article class="package-card package-card-silver">
+                    <p class="package-tier">Silver</p>
+                    <p class="package-price"><span class="package-price-label">From</span>INR 36,900</p>
+                    <div class="package-divider"></div>
+                    <ul class="package-features">
+                      <li>Award presentation by Chief Guest (on stage)</li>
+                      <li>Trophy and certificate on stage</li>
+                      <li>Exclusive networking opportunities</li>
+                      <li>Complimentary hospitality (lunch, tea, and snacks)</li>
+                      <li>1 accompany pass</li>
+                      <li>Name display at event</li>
+                    </ul>
+                    <div class="package-divider"></div>
+                    <a href="#contact-section" class="hero-button package-card-cta">Choose Plan</a>
                   </article>
                 </div>
               </div>
@@ -195,7 +160,7 @@ const marqueeLogos = [0, 1, 2, 3, 4, 5, 6, 7];
             {marqueeLogos.map((logo) => (
               <>
                 <span class="marquee-icon">✦</span>
-                <span class="marquee-text">COMING SOON</span>
+                <span class="marquee-text">25-07-2026</span>
                 <div class="marquee-separator"></div>
               </>
             ))}
@@ -207,26 +172,29 @@ const marqueeLogos = [0, 1, 2, 3, 4, 5, 6, 7];
         <div class="nitely-shell">
           <div class="grid-2-2">
             <img
-              src="https://cdn.prod.website-files.com/65782009fd8595214ed53f48/6585778df25d40e82b9b1d7e_zoneC.webp"
+              src="/images/about.jpeg"
               loading="lazy"
               alt="Nightclub interior"
               class="image-3-2"
             />
 
             <div class="exclusive-copy align-left reveal-side-right">
-              <p class="exclusive-eyebrow">Elite Recognition</p>
-              <h2 class="hero-heading">Showcase Your Success on a Prestigious Stage</h2>
+              <p class="exclusive-eyebrow">Paperplanes Excellence</p>
+              <h2 class="hero-heading">What Sets Paperplanes Apart</h2>
               <p class="subheading">
-                Be part of an elite gathering where your achievements are celebrated with
-                national recognition, premium media coverage, and meaningful connections
-                that elevate your personal and professional brand.
+                Prestigious business events and award platforms across diverse industries.
               </p>
-              <div class="exclusive-highlights" aria-label="Participation benefits">
-                <span class="exclusive-highlight">National Exposure</span>
-                <span class="exclusive-highlight">Media Spotlight</span>
-                <span class="exclusive-highlight">High-Value Networking</span>
-              </div>
-              <a href="/" data-scroll-target="contact-section" class="hero-button">Reserve table</a>
+              <ul class="exclusive-points" aria-label="Paperplanes strengths">
+                <li class="exclusive-point">Proven excellence in event execution, brand positioning, and high-value networking.</li>
+                <li class="exclusive-point">A rapidly growing and trusted name in event management, PR, and celebrity collaborations.</li>
+                <li class="exclusive-point">End-to-end solutions covering events, media, influencer marketing, branding, and promotions.</li>
+                <li class="exclusive-point">Strong industry connections enabling impactful collaborations with brands, creators, and leaders.</li>
+                <li class="exclusive-point">Expertise in creating premium, experience-driven events that leave a lasting impression.</li>
+              </ul>
+              <p class="subheading">
+                Paperplanes' flagship initiatives are designed to go beyond traditional events, crafting powerful platforms where talent is celebrated, brands gain visibility, and meaningful connections are built. With a focus on innovation and quality, Paperplanes continues to shape experiences that elevate recognition into legacy and transform ideas into impactful success stories.
+              </p>
+              <a href="/" data-scroll-target="contact-section" class="hero-button">Nominate Now</a>
             </div>
           </div>
         </div>
@@ -238,7 +206,7 @@ const marqueeLogos = [0, 1, 2, 3, 4, 5, 6, 7];
             {marqueeLogos.map((logo) => (
               <>
                 <span class="marquee-icon">◆</span>
-                <span class="marquee-text secondary">COMING SOON</span>
+                <span class="marquee-text secondary">25-07-2026</span>
                 <div class="marquee-separator accent"></div>
               </>
             ))}
@@ -295,22 +263,73 @@ const marqueeLogos = [0, 1, 2, 3, 4, 5, 6, 7];
                   <input class="subscribe-form-input" name="gstin" type="text" placeholder="GSTIN" />
                 </label>
 
+
+                <label>
+                  What best describes you?
+                  <select class="subscribe-form-input" name="profileType" id="profile-type-select" required>
+                    <option value="" selected>-Select-</option>
+                    <option value="Entrepreneurs/Business">Entrepreneurs / Business</option>
+                    <option value="Startups">Startups</option>
+                    <option value="Manufacturing">Manufacturing</option>
+                    <option value="Business Services">Business Services</option>
+                    <option value="Companies">Companies</option>
+                    <option value="Health & Wellness Coach">Health & Wellness Coach</option>
+                    <option value="Human Resource">Human Resource</option>
+                    <option value="NGOs">NGOs</option>
+                    <option value="Healthcare">Healthcare</option>
+                    <option value="Product/Business & Idea">Product / Business & Idea</option>
+                    <option value="Beauty & Wellness">Beauty & Wellness</option>
+                    <option value="Blogs">Blogs</option>
+                    <option value="Apps">Apps</option>
+                    <option value="Artists & Authors">Artists & Authors</option>
+                    <option value="YouTubers">YouTubers</option>
+                    <option value="Social Media & Influencers">Social Media & Influencers</option>
+                    <option value="Technology">Technology</option>
+                    <option value="Retail & Ecommerce">Retail & Ecommerce</option>
+                    <option value="Food & Beverages">Food & Beverages</option>
+                    <option value="Tourism & Hospitality">Tourism & Hospitality</option>
+                    <option value="Real Estate">Real Estate</option>
+                    <option value="Entertainment">Entertainment</option>
+                    <option value="Practitioners & Professionals">Practitioners & Professionals</option>
+                    <option value="Researchers">Researchers</option>
+                    <option value="Influencers">Influencers</option>
+                    <option value="Photographer/Videographer">Photographer / Videographer</option>
+                    <option value="Journalist">Journalist</option>
+                    <option value="Architect">Architect</option>
+                    <option value="Sports">Sports</option>
+                    <option value="Fashion Designer">Fashion Designer</option>
+                    <option value="Interior Designer">Interior Designer</option>
+                    <option value="Astrologers/Tarot Reader">Astrologers / Tarot Reader</option>
+                    <option value="Advocate">Advocate</option>
+                    <option value="Chef">Chef</option>
+                    <option value="Restaurant">Restaurant</option>
+                    <option value="Gym Trainer">Gym Trainer</option>
+                    <option value="Principal/Vice Principal">Principal / Vice Principal</option>
+                    <option value="Academics Director">Academics Director</option>
+                    <option value="Teacher/Trainer">Teacher / Trainer</option>
+                    <option value="Professor">Professor</option>
+                    <option value="School">School</option>
+                    <option value="Higher Education">Higher Education</option>
+                    <option value="Coaching Institute">Coaching Institute</option>
+                    <option value="Service Provider">Service Provider</option>
+                    <option value="Other">Other</option>
+
+                  </select>
+                </label>
+
+
                 <label>
                   Select your Sector
-                  <select class="subscribe-form-input" name="sector" required>
+                  <select class="subscribe-form-input" name="sector" id="sector-select" required disabled>
                     <option value="" selected>-Select-</option>
-                    <option value="Technology">Technology</option>
-                    <option value="Finance">Finance</option>
-                    <option value="Healthcare">Healthcare</option>
-                    <option value="Education">Education</option>
-                    <option value="Manufacturing">Manufacturing</option>
-                    <option value="Others">Others</option>
                   </select>
                 </label>
 
                 <label>
                   Award Categories
-                  <input class="subscribe-form-input" name="awardCategory" type="text" placeholder="Select Award Categories" required />
+                  <select class="subscribe-form-input" name="awardCategory" id="award-category-select" required disabled>
+                    <option value="" selected>Select Award Categories</option>
+                  </select>
                 </label>
 
                 <label>
@@ -329,8 +348,14 @@ const marqueeLogos = [0, 1, 2, 3, 4, 5, 6, 7];
 
                 <label class="full-width nomination-terms">
                   <span class="nomination-terms-row">
-                    <input type="checkbox" name="termsAccepted" required />
-                    <span>I have read and agree to the Terms and Conditions.</span>
+                    <input type="checkbox" id="termsAccepted" name="termsAccepted" required />
+                    <span class="nomination-terms-content">
+                      <span class="nomination-terms-title">I agree to the Terms and Conditions</span>
+                      <span class="nomination-terms-note"><strong>Nomination fee:</strong> INR 1990/- only.</span>
+                      <span class="nomination-terms-note">Only selected awardees will get a chance to attend the conference.</span>
+                      <span class="nomination-terms-note">For non-selected nominees, the fee will be refunded.</span>
+                      <span class="nomination-terms-note">For selected awardees, a conference fee is also included.</span>
+                    </span>
                   </span>
                 </label>
               </div>
@@ -340,11 +365,12 @@ const marqueeLogos = [0, 1, 2, 3, 4, 5, 6, 7];
                 <div class="text-under-field" id="enquiry-status">Complete the form to submit your nomination.</div>
               </div>
             </form>
+
           </div>
         </div>
       </section>
 
-      <section class="section footer">
+      <section class="section footer" id="footer-section">
         <div class="nitely-shell">
           <div class="footer-wrapper reveal-up">
             <div class="footer-column footer-brand-col">
@@ -396,24 +422,999 @@ const marqueeLogos = [0, 1, 2, 3, 4, 5, 6, 7];
 
       <script>
         const observer = new IntersectionObserver(
-          (entries) => {
+          (entries, obs) => {
             entries.forEach((entry) => {
               if (entry.isIntersecting) {
                 entry.target.classList.add('is-in-view');
+                obs.unobserve(entry.target);
               }
             });
           },
-          { threshold: 0.16 }
+          {
+            threshold: 0.05,
+            rootMargin: '0px 0px -8% 0px',
+          }
         );
 
-        document.querySelectorAll('.reveal-up, .reveal-side-left, .reveal-side-right').forEach((node, i) => {
-          const element = node as HTMLElement;
-          element.style.transitionDelay = `${Math.min(i * 55, 320)}ms`;
-          observer.observe(element);
+        document.querySelectorAll('.reveal-up, .reveal-side-left, .reveal-side-right').forEach((node) => {
+          observer.observe(node);
         });
 
         const enquiryForm = document.querySelector('#enquiry-form') as HTMLFormElement | null;
         const enquiryStatus = document.querySelector('#enquiry-status') as HTMLElement | null;
+        const profileTypeSelect = document.querySelector('#profile-type-select') as HTMLSelectElement | null;
+        const sectorSelect = document.querySelector('#sector-select') as HTMLSelectElement | null;
+        const awardCategorySelect = document.querySelector('#award-category-select') as HTMLSelectElement | null;
+
+        const awardCategoriesBySector: Record<string, string[]> = {
+          Startups: [
+            'Innovative Startup of the Year',
+            'Technology-based Startup of the Year',
+            'Art & Craft Startup of the Year',
+            'Digital Startup of the Year',
+            'Most Promising Startup of the Year',
+            'Mobility Startup of the Year',
+            'Energy Startup of the Year',
+            'Logistics Startup of the Year',
+            'Food & Beverage Startup of the Year',
+            'Healthcare Startup of the Year',
+            'Education Startup of the Year',
+            'Retail Startup of the Year',
+            'Tourism & Leisure Startup of the Year',
+            'Real Estate Startup of the Year',
+            'Social Impact Startup of the Year',
+            'E-Commerce (B2B) Startup of the Year',
+            'Rural Startup of the Year',
+            'Agricultural Startup of the Year',
+            'Women-Led Startup of the Year',
+            'Green Startup of the Year',
+            'Startup Leader of the Year',
+            'Founder of the Year',
+          ],
+          Manufacturing: [
+            'Best Manufacturer for Food and Beverages Industry',
+            'The Green Manufacturer Award',
+            'The Next Gen Manufacturer Award',
+            'Health and Safety Award',
+            'Manufacturing in Consumer Products Award',
+            'Manufacturing in Clothes and Textiles Award',
+            'Manufacturing on Automobiles and Telecommunication Award',
+          ],
+          Companies: [
+            'Industry Excellence Award',
+            'Corporate Social Responsibility (CSR) Award',
+            'Best Workplace Award',
+            'Start-up of the Year',
+            'Customer Service Excellence Award',
+            'Marketing and Advertising Award',
+            'Financial Performance Award',
+            'Global Expansion Award',
+            'Diversity and Inclusion Award',
+            'Employee Training and Development Award',
+            'Product Quality and Reliability Award',
+            'Small Business of the Year',
+            'Supply Chain Excellence Award',
+            'Customer Satisfaction Award',
+            'Inclusivity and Accessibility',
+            'Digital Transformation',
+          ],
+          'Health & Wellness': [
+            'Best Health and Wellness Coach of the Year',
+            'Outstanding Contribution to Health and Wellness',
+            'Best Overall Wellness Coach',
+            'Client Satisfaction Award',
+            'Innovative Wellness Practices',
+            'Community Impact Award',
+            'Mental Health Advocacy',
+            'Holistic Wellness Approach',
+            'Outstanding Nutrition Guidance',
+            'Top Fitness and Exercise Program',
+            'Best Stress Management Techniques',
+            'Mindfulness and Meditation Excellence',
+            'Youth Wellness Leadership',
+            'Senior Wellness Leadership',
+            'Corporate Wellness Program Excellence',
+            'Health and Wellness Education',
+            'Resilience Building Techniques',
+            'Empathy and Compassion in Coaching',
+            'Top Online Wellness Coach',
+            'Best Group Coaching Program',
+            'Personal Growth and Development Award',
+            'Dedication to Continuous Learning',
+            'Specialty Wellness Coach',
+            'Lifestyle and Behavior Change Coach',
+            'Resilience and Recovery Coach',
+            'Client Choice Award',
+            'Rookie Wellness Coach of the Year',
+            'Transformational Coach of the Year',
+            'Mindfulness and Meditation Coach of the Year',
+            'Best Fitness Coach of the Year',
+          ],
+          'Human Resources': [
+            'Innovation in HR Award',
+            'HR Excellence Award',
+            'Leadership in HR Award',
+            'Employee Engagement Award',
+            'Talent Acquisition Award',
+            'Learning and Development Award',
+            'HR Business Partner Award',
+            'Best HR of the Year',
+            'Innovative HR of the Year',
+            'Employee Wellness Award',
+            'HR Team of the Year',
+            'Outstanding Newcomer Award',
+            'Change Management Award',
+            'Compensation and Benefits Award',
+            'Employee Relations Award',
+            'HR Analytics Award',
+            'Customer Service in HR Award',
+            'Strategic HR Award',
+            'Dynamic HR of the Year',
+            'Excellence in Crisis Management Planning',
+            'Creative HR of the Year',
+          ],
+          NGOs: [
+            'Humanitarian Award',
+            'Environmental Stewardship Award',
+            'Social Justice Champion of the Year',
+            'Community Empowerment Award',
+            'Youth Leadership Award',
+            'Health and Wellness Advocacy Award',
+            'Educational Excellence Award',
+            'Philanthropy and Fundraising Award',
+            'Technology for Social Good Award',
+            'Lifetime Achievement Award',
+          ],
+          Healthcare: [
+            'Best Hospital of the Year',
+            'Best Multi-Specialty Hospital',
+            'Doctor of the Year',
+            'Surgeon of the Year',
+            'Nursing Excellence Award',
+            'Excellence in Patient Care',
+            'Patient Safety Award',
+            'Excellence in Emergency & Critical Care',
+            'Healthcare Leader of the Year',
+            'Young Healthcare Professional of the Year',
+            'Healthcare Innovation Award',
+            'Digital Health / Telemedicine Award',
+            'Best Healthcare Startup',
+            'Mental Health Advocacy Award',
+            'Preventive Healthcare Initiative Award',
+            'Community Healthcare Impact Award',
+            'Rural Healthcare Excellence Award',
+            'Medical Research Excellence Award',
+            'Healthcare Educator of the Year',
+            'Lifetime Achievement in Healthcare',
+          ],
+          'Product, Business & Idea': [
+            'Product of the Year',
+            'Innovative Product of the Year',
+            'Best New Product Launch',
+            'Best Consumer Product',
+            'Best B2B Product',
+            'Sustainable Product of the Year',
+            'Tech Product of the Year',
+            'Startup of the Year',
+            'Emerging Startup of the Year',
+            'Business of the Year',
+            'Small Business of the Year',
+            'Fastest Growing Company',
+            'Entrepreneur of the Year',
+            'Young Entrepreneur of the Year',
+            'Business Innovation Award',
+            'Disruptive Idea of the Year',
+            'Best Business Model Award',
+            'Social Impact Business Award',
+            'Green Business of the Year',
+            'Digital Transformation Award',
+          ],
+          'Beauty & Wellness': [
+            'Beauty Brand of the Year',
+            'Wellness Brand of the Year',
+            'Best Salon of the Year',
+            'Best Spa of the Year',
+            'Best Skincare Brand',
+            'Best Haircare Brand',
+            'Best Cosmetic Brand',
+            'Beauty Product of the Year',
+            'Wellness Product of the Year',
+            'Aesthetic Clinic of the Year',
+            'Dermatologist of the Year',
+            'Makeup Artist of the Year',
+            'Hair Stylist of the Year',
+            'Beauty Influencer of the Year',
+            'Wellness Coach of the Year',
+            'Holistic Wellness Expert of the Year',
+            'Fitness & Lifestyle Coach of the Year',
+            'Mental Wellness Advocate of the Year',
+            'Sustainable Beauty Brand of the Year',
+            'Emerging Beauty & Wellness Brand',
+          ],
+          Blog: [
+            'Best Beauty Blog',
+            'Best Wellness Blog',
+            'Best Skincare Blog',
+            'Best Haircare Blog',
+            'Best Makeup Blog',
+            'Best Fitness & Lifestyle Blog',
+            'Best Mental Health & Wellness Blog',
+            'Best Holistic Wellness Blog',
+            'Best Health & Nutrition Blog',
+            'Best Personal Care Blog',
+            'Best Sustainable Beauty Blog',
+            'Best Emerging Blog of the Year',
+            'Blogger of the Year',
+            'Best Influencer Blog',
+            'Most Informative Blog',
+            'Most Engaging Blog',
+            'Best Educational Blog',
+            'Best Content Strategy Award',
+            'Best Digital Content Creator (Blogging)',
+            'Excellence in Blogging',
+          ],
+          Apps: [
+            'App of the Year',
+            'Best Mobile App (Overall)',
+            'Best Startup App',
+            'Most Innovative App',
+            'Best User Experience (UX) App',
+            'Best User Interface (UI) Design App',
+            'Best AI-Powered App',
+            'Best Health & Fitness App',
+            'Best Education / EdTech App',
+            'Best FinTech App',
+            'Best E-commerce App',
+            'Best Social Networking App',
+            'Best Entertainment App',
+            'Best Productivity App',
+            'Best Gaming App',
+            'Best Travel & Hospitality App',
+            'Best Food & Delivery App',
+            'Fastest Growing App',
+            'Best Emerging App of the Year',
+            'Best App for Social Impact',
+          ],
+          'Artists & Authors': [
+            'Artist of the Year',
+            'Best Emerging Artist',
+            'Lifetime Achievement in Art',
+            'Excellence in Contemporary Art',
+            'Best Digital Artist',
+            'Best Traditional Artist',
+            'Innovation in Art & Creativity',
+            'Best Abstract Artist',
+            'Best Portrait Artist',
+            'Art Influencer of the Year',
+            'Author of the Year',
+            'Best Debut Author',
+            'Excellence in Fiction Writing',
+            'Excellence in Non-Fiction Writing',
+            'Best Poet / Poetry Collection',
+            'Best Children\'s Book Author',
+            'Best Motivational Author',
+            'Literary Excellence Award',
+            'Best Regional Language Author',
+            'Best Blogger / Digital Writer',
+          ],
+          YouTubers: [
+            'YouTuber of the Year',
+            'Best Emerging YouTuber',
+            'Best Content Creator',
+            'Most Influential YouTuber',
+            'Best Entertainment Channel',
+            'Best Educational Channel',
+            'Best Tech YouTuber',
+            'Best Lifestyle YouTuber',
+            'Best Travel YouTuber',
+            'Best Food YouTuber',
+            'Best Vlogger of the Year',
+            'Best Comedy Creator',
+            'Best Gaming Channel',
+            'Best Shorts Creator',
+            'Best Storytelling Channel',
+            'Most Creative Content Award',
+            'Viral Creator of the Year',
+            'Best Collaboration of the Year',
+            'Best Personal Branding (YouTube)',
+            'Audience Choice YouTuber',
+          ],
+          'Social Media & Influencers': [
+            'Influencer of the Year',
+            'Best Emerging Influencer',
+            'Social Media Star Award',
+            'Most Influential Digital Creator',
+            'Content Creator of the Year',
+            'Viral Influencer of the Year',
+            'Best Personal Brand (Social Media)',
+            'Most Creative Content Creator',
+            'Best Lifestyle Influencer',
+            'Best Fashion Influencer',
+            'Best Travel Influencer',
+            'Best Food Influencer',
+            'Best Fitness Influencer',
+            'Best Beauty Influencer',
+            'Best Educational Content Creator',
+            'Best Reel / Shorts Creator',
+            'Best Storytelling Creator',
+            'Brand Collaboration Excellence Award',
+            'Audience Choice Influencer',
+            'Rising Star Influencer Award',
+          ],
+          Technology: [
+            'Tech Company of the Year',
+            'Startup of the Year (Technology)',
+            'Innovator of the Year (Tech)',
+            'Best AI Innovation Award',
+            'Best Software Product',
+            'Best Mobile App of the Year',
+            'Excellence in Cybersecurity',
+            'Best SaaS Platform',
+            'Best FinTech Innovation',
+            'Best HealthTech Solution',
+            'Best EdTech Platform',
+            'Best E-commerce Technology',
+            'Cloud Technology Excellence Award',
+            'Best IT Services Company',
+            'Digital Transformation Leader',
+            'Emerging Tech Startup Award',
+            'Best UX/UI Design (Tech Product)',
+            'Best Data Analytics Solution',
+            'Green Technology Innovation Award',
+            'Lifetime Achievement in Technology',
+          ],
+          'Retail & Ecommerce': [
+            'Retail Brand of the Year',
+            'E-Commerce Company of the Year',
+            'Best Emerging Retail Brand',
+            'Best Online Store of the Year',
+            'Omnichannel Retail Excellence Award',
+            'Customer Experience Excellence (Retail)',
+            'Best D2C Brand',
+            'Most Innovative Retail Concept',
+            'Best Fashion Retail Brand',
+            'Best Lifestyle Retail Brand',
+            'Best Grocery / FMCG Retailer',
+            'Best Luxury Retail Brand',
+            'Best Local Retail Store',
+            'Best Marketplace Platform',
+            'Best Mobile Commerce Experience',
+            'Best Digital Marketing Campaign (Retail/E-Commerce)',
+            'Supply Chain Excellence Award',
+            'Best Payment & Checkout Experience',
+            'Sustainability in Retail Award',
+            'Retail Startup of the Year',
+          ],
+          'Tourism & Hospitality': [
+            'Hotel of the Year',
+            'Best Luxury Hotel',
+            'Best Budget Hotel',
+            'Best Boutique Hotel',
+            'Resort of the Year',
+            'Best Beach Resort',
+            'Best Eco-Friendly Hotel/Resort',
+            'Best Homestay Experience',
+            'Best Travel Agency',
+            'Tour Operator of the Year',
+            'Best Destination Management Company',
+            'Best Airline Service',
+            'Best Hospitality Brand',
+            'Excellence in Customer Service (Hospitality)',
+            'Best Food & Beverage Experience (Hotel/Resort)',
+            'Best Wellness & Spa Resort',
+            'Sustainable Tourism Award',
+            'Best Adventure Tourism Provider',
+            'Emerging Hospitality Brand',
+            'Lifetime Achievement in Hospitality',
+          ],
+          'Real Estate': [
+            'Real Estate Company of the Year',
+            'Developer of the Year',
+            'Best Residential Project',
+            'Best Commercial Project',
+            'Luxury Project of the Year',
+            'Affordable Housing Project of the Year',
+            'Best Mixed-Use Development',
+            'Best Township Project',
+            'Best Smart Building Project',
+            'Real Estate Startup of the Year',
+            'Best Sustainable / Green Project',
+            'Excellence in Architecture & Design',
+            'Best Interior Design (Real Estate)',
+            'Best Property Consultant / Broker',
+            'Best Property Management Company',
+            'Customer Experience Excellence (Real Estate)',
+            'Innovation in Real Estate Technology (PropTech)',
+            'Fastest Growing Real Estate Brand',
+            'Emerging Developer of the Year',
+            'Lifetime Achievement in Real Estate',
+          ],
+          Entertainment: [
+            'Entertainer of the Year',
+            'Rising Star of the Year',
+            'Lifetime Achievement in Entertainment',
+            'Best Actor of the Year',
+            'Best Actress of the Year',
+            'Best Director',
+            'Best Film / Movie of the Year',
+            'Best Web Series',
+            'Best OTT Content Creator',
+            'Best Music Artist / Performer',
+            'Best Singer of the Year',
+            'Best Dancer / Performer',
+            'Best Comedian / Entertainer',
+            'Best Reality Show Personality',
+            'Best Influencer in Entertainment',
+            'Most Popular Celebrity Award',
+            'Breakthrough Performance of the Year',
+            'Excellence in Storytelling (Entertainment)',
+            'Best Production House',
+            'Audience Choice Entertainment Award',
+          ],
+          'Practitioners & Professionals': [
+            'Outstanding Achievement Award',
+            'Leadership and Innovation Award',
+            'Lifetime Achievement Award',
+            'Excellence in Research Award',
+            'Mentorship and Education Award',
+            'Community Service and Philanthropy Award',
+            'Young Professional of the Year',
+            'Diversity and Inclusion Award',
+            'Customer Service Excellence Award',
+            'Environmental Stewardship',
+          ],
+          Researchers: [
+            'Pioneer of Discovery Award',
+            'The Breakthrough Mind Award',
+            'Future Shaper in Research',
+            'The Innovation Catalyst Award',
+            'Visionary Research Leader',
+            'The Knowledge Architect Award',
+            'Trailblazer in Science & Research',
+            'The Impact Creator Award (Research)',
+            'Disruptive Research Excellence Award',
+            'The Intellectual Icon Award',
+            'Research Excellence Beyond Boundaries',
+            'The Data Visionary Award',
+            'The Think Tank Leader Award',
+            'Transformational Research Award',
+            'The Discovery Champion Award',
+            'Global Change Maker (Research)',
+            'The Evidence-Based Excellence Award',
+            'Frontier Science Leadership Award',
+            'The Academic Luminary Award',
+            'Research Legacy & Influence Award',
+          ],
+          Influencers: [
+            'Digital Icon of Influence',
+            'The Social Media Trailblazer Award',
+            'Influence Powerhouse Award',
+            'The Viral Sensation Award',
+            'The Content Visionary Award',
+            'The Trendsetter of the Year',
+            'Digital Storyteller Excellence Award',
+            'The Engagement Master Award',
+            'The Brand Magnet Award',
+            'The Creative Disruptor Award',
+            'The Social Impact Influencer Award',
+            'The Lifestyle Icon Award',
+            'The Fashion Authority Award',
+            'The Wellness & Fitness Influencer Award',
+            'The Travel Tastemaker Award',
+            'The Food Creator of Influence',
+            'The Rising Digital Star Award',
+            'The Audience Choice Influencer Icon',
+            'The Personal Branding Excellence Award',
+            'The Global Influencer Impact Award',
+          ],
+          'Photographer/Videographer': [
+            'Visual Storyteller of the Year',
+            'Lens Master Award',
+            'The Frame Perfectionist Award',
+            'Cinematic Excellence Award',
+            'The Creative Lens Award',
+            'Master of Moments Award',
+            'The Visionary Photographer Award',
+            'The Cinematography Icon Award',
+            'The Aesthetic Eye Award',
+            'The Story in Motion Award',
+            'The Wedding Visual Artist Award',
+            'The Portrait Maestro Award',
+            'The Commercial Visual Creator Award',
+            'The Travel & Nature Visualist Award',
+            'The Fashion Photography Icon',
+            'The Documentary Excellence Award',
+            'The Drone Cinematography Award',
+            'The Editing Genius Award',
+            'The Rising Lens Star Award',
+            'Lifetime Achievement in Visual Arts',
+          ],
+          Journalist: [
+            'Journalist of the Year',
+            'The Truth Seeker Award',
+            'Excellence in Investigative Journalism',
+            'The Voice of the People Award',
+            'Breaking News Excellence Award',
+            'The Editorial Impact Award',
+            'The Fearless Reporter Award',
+            'The Storytelling in Journalism Award',
+            'Digital Journalist of the Year',
+            'Broadcast Journalist Excellence Award',
+            'The Print Media Excellence Award',
+            'The Political Journalism Award',
+            'The Business & Economic Reporting Award',
+            'The Social Impact Journalism Award',
+            'The Photojournalism Excellence Award',
+            'The Documentary Journalism Award',
+            'The Rising Star Journalist Award',
+            'The Ethical Journalism Award',
+            'The Global Reporting Excellence Award',
+            'Lifetime Achievement in Journalism',
+          ],
+          Architect: [
+            'Architect of the Year',
+            'The Visionary Architect Award',
+            'Design Excellence in Architecture',
+            'The Master Planner Award',
+            'Sustainable Architecture Icon',
+            'The Urban Innovator Award',
+            'The Green Building Pioneer Award',
+            'The Luxury Design Architect Award',
+            'The Smart Space Creator Award',
+            'The Aesthetic Design Maestro',
+            'The Structural Innovation Award',
+            'The Future Architecture Leader',
+            'The Conceptual Design Excellence Award',
+            'The Interior Architecture Icon',
+            'The Commercial Design Excellence Award',
+            'The Residential Design Excellence Award',
+            'The Cultural & Heritage Design Award',
+            'The Landscape Architecture Excellence Award',
+            'The Rising Architect Star Award',
+            'Lifetime Achievement in Architecture',
+          ],
+          Sports: [
+            'Sportsperson of the Year',
+            'The Champion of Champions Award',
+            'Rising Star Athlete Award',
+            'Lifetime Achievement in Sports',
+            'The Game Changer Award',
+            'Excellence in Team Performance',
+            'The Most Valuable Player (MVP) Award',
+            'The Record Breaker Award',
+            'The Comeback King/Queen Award',
+            'The Fitness Icon in Sports',
+            'The Young Achiever in Sports',
+            'The Coach of the Year Award',
+            'The Sports Leadership Award',
+            'The Best Team of the Year',
+            'The Sportsmanship Excellence Award',
+            'The Endurance Athlete Award',
+            'The Breakthrough Performance Award',
+            'The Fan Favorite Athlete Award',
+            'The International Achievement Award',
+            'The Grassroots Development Award',
+          ],
+          'Fashion Designer': [
+            'Fashion Designer of the Year',
+            'The Couture Icon Award',
+            'The Visionary Designer Award',
+            'Emerging Fashion Designer of the Year',
+            'The Luxury Fashion Excellence Award',
+            'The Trendsetter Designer Award',
+            'The Sustainable Fashion Innovator',
+            'The Bridal Couture Specialist Award',
+            'The Avant-Garde Designer Award',
+            'The Ready-to-Wear Excellence Award',
+            'The Fashion Innovation Award',
+            'The Textile & Craft Revival Award',
+            'The Global Fashion Influence Award',
+            'The Celebrity Designer Award',
+            'The Streetwear Icon Award',
+            'The Accessories Designer of the Year',
+            'The Fashion Entrepreneur Award',
+            'The Digital Fashion Creator Award',
+            'The Young Fashion Visionary Award',
+            'Lifetime Achievement in Fashion Design',
+          ],
+          'Interior Designer': [
+            'Interior Designer of the Year',
+            'The Visionary Interior Designer Award',
+            'Excellence in Interior Design',
+            'The Luxury Interiors Icon Award',
+            'The Space Transformation Award',
+            'The Aesthetic Excellence Award',
+            'Emerging Interior Designer of the Year',
+            'The Concept Design Master Award',
+            'The Sustainable Interior Design Award',
+            'The Modern Living Design Award',
+            'The Commercial Interior Excellence Award',
+            'The Residential Design Excellence Award',
+            'The Hospitality Interior Design Award',
+            'The Workspace Innovation Award',
+            'The Creative Use of Space Award',
+            'The Color & Material Mastery Award',
+            'The Furniture & Decor Innovation Award',
+            'The Smart & Functional Design Award',
+            'The Young Interior Visionary Award',
+            'Lifetime Achievement in Interior Design',
+          ],
+          'Astrologers/Tarot Reader': [
+            'Astrologer of the Year',
+            'The Cosmic Visionary Award',
+            'The Celestial Guide Award',
+            'Excellence in Astrology',
+            'The Spiritual Insight Award',
+            'The Predictive Accuracy Award',
+            'The Vedic Astrology Excellence Award',
+            'The Modern Astrology Innovator',
+            'The Horoscope Expert Award',
+            'The Kundli Analysis Master Award',
+            'The Tarot & Divination Excellence Award',
+            'The Numerology Expert Award',
+            'The Astro-Healing Practitioner Award',
+            'The Global Astrology Influence Award',
+            'The Rising Star Astrologer Award',
+            'The Trusted Astrologer Award',
+            'The Client Impact Excellence Award',
+            'The Astrology Educator Award',
+            'The Digital Astrology Influencer Award',
+            'Lifetime Achievement in Astrology',
+          ],
+          Advocate: [
+            'Advocate of the Year',
+            'The Legal Luminary Award',
+            'Excellence in Legal Practice',
+            'The Justice Champion Award',
+            'The Courtroom Excellence Award',
+            'The Legal Strategist Award',
+            'The Corporate Law Expert Award',
+            'The Criminal Law Excellence Award',
+            'The Civil Law Specialist Award',
+            'The Constitutional Law Excellence Award',
+            'The Litigation Excellence Award',
+            'The Arbitration & Mediation Expert Award',
+            'The Legal Advisor of the Year',
+            'The Public Interest Litigation Award',
+            'The Women in Law Excellence Award',
+            'The Rising Legal Star Award',
+            'The Ethical Practice in Law Award',
+            'The Client Advocacy Excellence Award',
+            'The Legal Innovator Award',
+            'Lifetime Achievement in Law',
+          ],
+          Chef: [
+            'Chef of the Year',
+            'The Culinary Maestro Award',
+            'The MasterChef Excellence Award',
+            'The Gourmet Innovator Award',
+            'The Taste Creator Award',
+            'The Fine Dining Excellence Award',
+            'The Fusion Cuisine Specialist Award',
+            'The Traditional Cuisine Revival Award',
+            'The Pastry & Dessert Artist Award',
+            'The Street Food Innovator Award',
+            'The Farm-to-Table Champion Award',
+            'The Healthy Cuisine Expert Award',
+            'The Global Flavours Icon Award',
+            'The Kitchen Leadership Award',
+            'The Sustainable Culinary Award',
+            'The Rising Star Chef Award',
+            'The Culinary Entrepreneur Award',
+            'The Food Presentation Artist Award',
+            'The Celebrity Chef Award',
+            'Lifetime Achievement in Culinary Arts',
+          ],
+          Restaurant: [
+            'Restaurant of the Year',
+            'The Culinary Excellence Award',
+            'The Fine Dining Restaurant Award',
+            'The Casual Dining Excellence Award',
+            'The Luxury Dining Experience Award',
+            'The Best Themed Restaurant Award',
+            'The Multi-Cuisine Excellence Award',
+            'The Authentic Regional Cuisine Award',
+            'The Street Food Restaurant Award',
+            'The Cafe of the Year',
+            'The Best Cloud Kitchen Award',
+            'The Innovative Menu Award',
+            'The Best Ambience & Interiors Award',
+            'The Customer Experience Excellence Award',
+            'The Sustainable Restaurant Award',
+            'The Best New Restaurant Award',
+            'The Family Dining Excellence Award',
+            'The Nightlife Dining Destination Award',
+            'The Dessert & Bakery Excellence Award',
+            'Lifetime Achievement in Hospitality (Restaurant)',
+          ],
+          'Gym Trainer': [
+            'Fitness Trainer of the Year',
+            'The Fitness Icon Award',
+            'The Transformation Specialist Award',
+            'The Strength & Conditioning Expert Award',
+            'The Personal Training Excellence Award',
+            'The Wellness Coach of the Year',
+            'The Body Transformation Coach Award',
+            'The Functional Fitness Expert Award',
+            'The Weight Loss Specialist Award',
+            'The Muscle Building Expert Award',
+            'The Group Fitness Leader Award',
+            'The Online Fitness Coach Award',
+            'The Celebrity Fitness Trainer Award',
+            'The Holistic Health & Fitness Award',
+            'The Sports Fitness Trainer Award',
+            'The Cross Training Excellence Award',
+            'The Rising Star Fitness Coach Award',
+            'The Client Impact Excellence Award',
+            'The Fitness Influencer Award',
+            'Lifetime Achievement in Fitness & Training',
+          ],
+          'Principal/Vice Principal': [
+            'Principal of the Year',
+            'Vice Principal of the Year',
+            'The Visionary Education Leader Award',
+            'The Academic Excellence Leadership Award',
+            'The Transformational School Leader Award',
+            'The Innovative Education Leader Award',
+            'The Student-Centric Leadership Award',
+            'The Institutional Growth Excellence Award',
+            'The Excellence in School Administration Award',
+            'The Holistic Education Leader Award',
+            'The Discipline & Value Education Award',
+            'The Digital Education Leadership Award',
+            'The Community Impact in Education Award',
+            'The Inclusive Education Leadership Award',
+            'The Inspirational Leader in Education Award',
+            'The Emerging School Leader Award',
+            'The Excellence in Teacher Development Award',
+            'The Strategic Leadership in Education Award',
+            'The Women in Educational Leadership Award',
+            'Lifetime Achievement in Education Leadership',
+          ],
+          'Academics Director': [
+            'Academic Director of the Year',
+            'The Visionary Academic Leader Award',
+            'Excellence in Academic Leadership',
+            'The Curriculum Innovation Award',
+            'The Learning Transformation Leader Award',
+            'The Academic Excellence Strategist Award',
+            'The Future Education Architect Award',
+            'The Student Success Leadership Award',
+            'The Institutional Excellence Award (Academics)',
+            'The Digital Learning Pioneer Award',
+            'The Research & Academic Development Award',
+            'The Quality Education Leadership Award',
+            'The Global Education Leadership Award',
+            'The Holistic Learning Advocate Award',
+            'The Academic Growth Catalyst Award',
+            'The Faculty Development Excellence Award',
+            'The Innovative Pedagogy Award',
+            'The Strategic Academic Planner Award',
+            'The Emerging Academic Leader Award',
+            'Lifetime Achievement in Academic Leadership',
+          ],
+          'Teacher/Trainer': [
+            'Teacher of the Year',
+            'Trainer of the Year',
+            'The Inspirational Educator Award',
+            'The Master Trainer Excellence Award',
+            'The Innovative Teaching Award',
+            'The Learning Impact Creator Award',
+            'The Student Success Champion Award',
+            'The Skill Development Excellence Award',
+            'The Digital Educator Award',
+            'The Classroom Excellence Award',
+            'The Corporate Trainer of the Year',
+            'The Soft Skills Trainer Excellence Award',
+            'The Leadership Development Trainer Award',
+            'The Emerging Educator Award',
+            'The Creative Teaching Excellence Award',
+            'The Holistic Education Award',
+            'The Mentor of the Year Award',
+            'The Knowledge Transformer Award',
+            'The Women in Education Excellence Award',
+            'Lifetime Achievement in Teaching & Training',
+          ],
+          Professor: [
+            'Professor of the Year',
+            'The Distinguished Professor Award',
+            'Excellence in Teaching & Research',
+            'The Academic Leadership Excellence Award',
+            'The Research Impact Professor Award',
+            'The Innovative Teaching Professor Award',
+            'The Scholarly Excellence Award',
+            'The Global Academic Influence Award',
+            'The Curriculum Development Excellence Award',
+            'The Doctoral Mentorship Excellence Award',
+            'The Interdisciplinary Research Leader Award',
+            'The Publication Excellence Award',
+            'The Student Mentorship Champion Award',
+            'The Academic Visionary Award',
+            'The Emerging Professor Award',
+            'The Industry-Academia Collaboration Award',
+            'The Digital Learning Pioneer Award',
+            'The Social Impact in Academia Award',
+            'The Women in Academia Excellence Award',
+            'Lifetime Achievement in Academia',
+          ],
+          School: [
+            'School of the Year',
+            'The Excellence in Education Award',
+            'The Innovative School Award',
+            'The Holistic Development School Award',
+            'The Academic Excellence School Award',
+            'The Future-Ready School Award',
+            'The Digital Learning Excellence Award',
+            'The Student-Centric School Award',
+            'The Inclusive Education Excellence Award',
+            'The Value-Based Education Award',
+            'The Co-Curricular Excellence Award',
+            'The Sports Excellence School Award',
+            'The Infrastructure Excellence Award',
+            'The Green & Sustainable School Award',
+            'The Safety & Wellbeing Excellence Award',
+            'The Community Engagement School Award',
+            'The Leadership in Education Award (School)',
+            'The Emerging School of the Year',
+            'The International Curriculum Excellence Award',
+            'Lifetime Contribution to Education (Institution)',
+          ],
+          'Higher Education': [
+            'Institution of the Year (Higher Education)',
+            'University Excellence Award',
+            'College of the Year',
+            'The Academic Excellence Institution Award',
+            'The Research & Innovation Excellence Award',
+            'The Global Education Impact Award',
+            'The Future-Ready Institution Award',
+            'The Digital Learning Excellence Award',
+            'The Industry-Academia Collaboration Award',
+            'The Skill Development Excellence Award',
+            'The Student Success & Placement Excellence Award',
+            'The Curriculum Innovation Award',
+            'The Interdisciplinary Education Excellence Award',
+            'The Sustainable Campus Award',
+            'The Infrastructure Excellence Award',
+            'The Inclusive Education Excellence Award',
+            'The Leadership in Higher Education Award',
+            'The Emerging Institution of the Year',
+            'The International Collaboration Excellence Award',
+            'Lifetime Achievement in Higher Education',
+          ],
+          'Service Provider': [
+            'Service Provider of the Year',
+            'Excellence in Service Delivery Award',
+            'The Customer Experience Champion Award',
+            'The Service Innovation Award',
+            'The Trusted Service Brand Award',
+            'The Quality Service Excellence Award',
+            'The Client Satisfaction Excellence Award',
+            'The Fastest Growing Service Provider Award',
+            'The Emerging Service Provider Award',
+            'The Professional Service Excellence Award',
+            'The Digital Service Excellence Award',
+            'The On-Demand Service Innovation Award',
+            'The Local Service Excellence Award',
+            'The B2B Service Excellence Award',
+            'The B2C Service Excellence Award',
+            'The Personalized Service Experience Award',
+            'The Reliability & Trust Award',
+            'The Service Leadership Excellence Award',
+            'The Community Impact Service Award',
+            'Lifetime Achievement in Service Industry',
+          ],
+        };
+
+        const allAwardSectors = Object.keys(awardCategoriesBySector);
+
+        const sectorsByProfileType: Record<string, string[]> = {
+          'Entrepreneurs/Business': allAwardSectors,
+          Startups: ['Startups'],
+          Manufacturing: ['Manufacturing'],
+          'Business Services': ['Companies', 'Product, Business & Idea'],
+          Companies: ['Companies'],
+          'Health & Wellness Coach': ['Health & Wellness'],
+          'Human Resource': ['Human Resources'],
+          NGOs: ['NGOs'],
+          Healthcare: ['Healthcare'],
+          'Product/Business & Idea': ['Product, Business & Idea'],
+          'Beauty & Wellness': ['Beauty & Wellness'],
+          Blogs: ['Blog'],
+          Apps: ['Apps'],
+          'Artists & Authors': ['Artists & Authors'],
+          YouTubers: ['YouTubers'],
+          'Social Media & Influencers': ['Social Media & Influencers'],
+          Technology: ['Technology'],
+          'Retail & Ecommerce': ['Retail & Ecommerce'],
+          'Food & Beverages': ['Startups', 'Manufacturing'],
+          'Tourism & Hospitality': ['Tourism & Hospitality'],
+          'Real Estate': ['Real Estate'],
+          Entertainment: ['Entertainment'],
+          'Practitioners & Professionals': ['Practitioners & Professionals'],
+          Researchers: ['Researchers'],
+          Influencers: ['Influencers'],
+          'Photographer/Videographer': ['Photographer/Videographer'],
+          Journalist: ['Journalist'],
+          Architect: ['Architect'],
+          Sports: ['Sports'],
+          'Fashion Designer': ['Fashion Designer'],
+          'Interior Designer': ['Interior Designer'],
+          'Astrologers/Tarot Reader': ['Astrologers/Tarot Reader'],
+          Advocate: ['Advocate'],
+          Chef: ['Chef'],
+          Restaurant: ['Restaurant'],
+          'Gym Trainer': ['Gym Trainer'],
+          'Principal/Vice Principal': ['Principal/Vice Principal'],
+          'Academics Director': ['Academics Director'],
+          'Teacher/Trainer': ['Teacher/Trainer'],
+          Professor: ['Professor'],
+          School: ['School'],
+          'Higher Education': ['Higher Education'],
+          'Coaching Institute': ['Teacher/Trainer', 'Higher Education'],
+          'Service Provider': ['Service Provider'],
+          Other: allAwardSectors,
+        };
+
+        const setSectorOptions = (profileType: string) => {
+          if (!sectorSelect) return;
+
+          sectorSelect.innerHTML = '';
+
+          const placeholder = document.createElement('option');
+          placeholder.value = '';
+          placeholder.textContent = '-Select-';
+          placeholder.selected = true;
+          sectorSelect.appendChild(placeholder);
+
+          const matchedSectors = sectorsByProfileType[profileType];
+          const sectors = matchedSectors || [];
+          sectors.forEach((sector) => {
+            const option = document.createElement('option');
+            option.value = sector;
+            option.textContent = sector;
+            sectorSelect.appendChild(option);
+          });
+
+          sectorSelect.disabled = sectors.length === 0;
+        };
+
+        const setAwardCategoryOptions = (sector: string) => {
+          if (!awardCategorySelect) return;
+
+          awardCategorySelect.innerHTML = '';
+
+          const placeholder = document.createElement('option');
+          placeholder.value = '';
+          placeholder.textContent = 'Select Award Categories';
+          placeholder.selected = true;
+          awardCategorySelect.appendChild(placeholder);
+
+          const categories = awardCategoriesBySector[sector] || [];
+          categories.forEach((category) => {
+            const option = document.createElement('option');
+            option.value = category;
+            option.textContent = category;
+            awardCategorySelect.appendChild(option);
+          });
+
+          awardCategorySelect.disabled = categories.length === 0;
+        };
+
+        if (profileTypeSelect && sectorSelect && awardCategorySelect) {
+          setSectorOptions(profileTypeSelect.value);
+          setAwardCategoryOptions(sectorSelect.value);
+
+          profileTypeSelect.addEventListener('change', (event) => {
+            const selectedProfileType = (event.target as HTMLSelectElement).value;
+            setSectorOptions(selectedProfileType);
+            setAwardCategoryOptions('');
+          });
+
+          sectorSelect.addEventListener('change', (event) => {
+            const selectedSector = (event.target as HTMLSelectElement).value;
+            setAwardCategoryOptions(selectedSector);
+          });
+        }
 
         if (enquiryForm && enquiryStatus) {
           enquiryForm.addEventListener('submit', async (event) => {
@@ -427,15 +1428,31 @@ const marqueeLogos = [0, 1, 2, 3, 4, 5, 6, 7];
             enquiryStatus.classList.add('submitting');
 
             const formData = new FormData(enquiryForm);
+            const getSelectLabel = (name: string) => {
+              const field = enquiryForm.elements.namedItem(name);
+              if (field instanceof HTMLSelectElement) {
+                const selected = field.options[field.selectedIndex];
+                return selected?.text?.trim() || String(formData.get(name) || '');
+              }
+              return String(formData.get(name) || '');
+            };
+
+            const titleLabel = getSelectLabel('title');
+            const profileTypeLabel = getSelectLabel('profileType');
+            const sectorLabel = getSelectLabel('sector');
+            const awardCategoryLabel = getSelectLabel('awardCategory');
+            const doctorateInterestLabel = getSelectLabel('doctorateInterest');
+
             const nominationSummary = [
-              `Title: ${String(formData.get('title') || '')}`,
+              `Title: ${titleLabel}`,
+              `Profile Type: ${profileTypeLabel}`,
               `Organisation: ${String(formData.get('organisation') || '')}`,
               `Address: ${String(formData.get('address') || '')}`,
               `GSTIN: ${String(formData.get('gstin') || 'Not provided')}`,
-              `Sector: ${String(formData.get('sector') || '')}`,
-              `Award Category: ${String(formData.get('awardCategory') || '')}`,
+              `Sector: ${sectorLabel}`,
+              `Award Category: ${awardCategoryLabel}`,
               `Website: ${String(formData.get('website') || 'Not provided')}`,
-              `Honorary Doctorate Interest: ${String(formData.get('doctorateInterest') || '')}`,
+              `Honorary Doctorate Interest: ${doctorateInterestLabel}`,
               `Terms Accepted: ${formData.get('termsAccepted') ? 'Yes' : 'No'}`,
             ].join('\n');
 
@@ -443,26 +1460,45 @@ const marqueeLogos = [0, 1, 2, 3, 4, 5, 6, 7];
               name: String(formData.get('name') || ''),
               email: String(formData.get('email') || ''),
               phone: String(formData.get('phone') || ''),
+              title: titleLabel,
+              profileType: profileTypeLabel,
+              organisation: String(formData.get('organisation') || ''),
+              address: String(formData.get('address') || ''),
+              gstin: String(formData.get('gstin') || 'Not provided'),
+              sector: sectorLabel,
+              awardCategory: awardCategoryLabel,
+              website: String(formData.get('website') || 'Not provided'),
+              doctorateInterest: doctorateInterestLabel,
+              termsAccepted: formData.get('termsAccepted') ? 'Yes' : 'No',
               enquiry: nominationSummary,
+              from_name: String(formData.get('name') || ''),
+              from_email: String(formData.get('email') || ''),
+              from_phone: String(formData.get('phone') || ''),
+              reply_to: String(formData.get('email') || ''),
+              message: nominationSummary,
+              subject: 'New nomination form submission',
             };
 
             try {
               const response = await fetch('/api/enquiry', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers: {
+                  'Content-Type': 'application/json',
+                },
                 body: JSON.stringify(payload),
               });
 
               const result = await response.json();
-
               if (!response.ok) {
-                throw new Error(result.message || 'Failed to submit nomination.');
+                throw new Error(result.message || 'Unable to submit nomination right now.');
               }
 
               enquiryStatus.textContent = 'Thank you. Your nomination has been received successfully.';
               enquiryStatus.classList.remove('submitting', 'error');
               enquiryStatus.classList.add('success');
               enquiryForm.reset();
+              setSectorOptions('');
+              setAwardCategoryOptions('');
             } catch (error) {
               const message = error instanceof Error ? error.message : 'Unable to submit nomination right now.';
               enquiryStatus.textContent = message;

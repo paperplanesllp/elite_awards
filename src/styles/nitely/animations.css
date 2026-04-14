@@ -43,48 +43,44 @@
 
 @keyframes textGlow {
 	0%, 100% {
-		filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.15)) drop-shadow(0 0 40px rgba(255, 255, 255, 0.05));
-		letter-spacing: 0.15em;
+		opacity: 1;
 	}
 
 	50% {
-		filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.25)) drop-shadow(0 0 60px rgba(255, 255, 255, 0.1));
-		letter-spacing: 0.18em;
+		opacity: 0.96;
 	}
 }
 
 @keyframes neonGlow {
 	0%, 100% {
-		filter: drop-shadow(0 0 25px rgba(168, 85, 247, 0.3)) drop-shadow(0 0 10px rgba(0, 212, 255, 0.2));
-		text-shadow: none;
+		opacity: 1;
 	}
 
 	50% {
-		filter: drop-shadow(0 0 40px rgba(168, 85, 247, 0.5)) drop-shadow(0 0 20px rgba(0, 212, 255, 0.3));
-		text-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
+		opacity: 0.96;
 	}
 }
 
 @keyframes pulseSeparator {
 	0%, 100% {
 		opacity: 0.3;
-		transform: scaleY(0.8);
+		transform: none;
 	}
 
 	50% {
-		opacity: 0.8;
-		transform: scaleY(1.2);
+		opacity: 0.45;
+		transform: none;
 	}
 }
 
 @keyframes floatIcon {
 	0%, 100% {
-		transform: translateY(0px) rotate(0deg);
+		transform: none;
 		opacity: 0.5;
 	}
 
 	50% {
-		transform: translateY(-8px) rotate(5deg);
-		opacity: 0.9;
+		transform: none;
+		opacity: 0.7;
 	}
 }

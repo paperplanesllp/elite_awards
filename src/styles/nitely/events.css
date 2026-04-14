@@ -119,7 +119,6 @@
 	overflow: hidden;
 	aspect-ratio: 0.89;
 	background: #050505;
-	will-change: transform;
 }
 
 .event-link-block {
@@ -133,23 +132,23 @@
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
-	transition: transform 520ms cubic-bezier(0.2, 0.8, 0.2, 1);
+	transition: transform 240ms ease;
 }
 
 .event-card-wrap .image-1-1 {
-	transform: scale(1.07);
+	transform: scale(1.02);
 }
 
 .event-card-wrap:hover .image-1-1 {
-	transform: scale(1.01);
+	transform: scale(1);
 }
 
 .past-event-card-wrap .image-1-1 {
-	transform: scale(1.08);
+	transform: scale(1.02);
 }
 
 .past-event-card-wrap:hover .image-1-1 {
-	transform: scale(1.14);
+	transform: scale(1.04);
 }
 
 .date-in-card {
@@ -190,7 +189,7 @@
 	padding: 0.82rem 0.8rem;
 	background: linear-gradient(180deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.86) 70%);
 	transform: translateY(100%);
-	transition: transform 360ms cubic-bezier(0.2, 0.8, 0.2, 1);
+	transition: transform 220ms ease;
 }
 
 .event-card-wrap:hover .event-card-footer {
@@ -243,8 +242,6 @@
 	height: 2.7rem;
 	border-radius: 999px;
 	background: rgba(255, 255, 255, 0.45);
-	-webkit-backdrop-filter: blur(2px);
-	backdrop-filter: blur(2px);
 	z-index: 3;
 	pointer-events: none;
 	transition: transform 280ms ease, background-color 280ms ease;
@@ -287,7 +284,7 @@
 .reveal-up {
 	opacity: 0;
 	transform: translateY(22px);
-	transition: opacity 560ms ease, transform 560ms cubic-bezier(0.2, 0.8, 0.2, 1);
+	transition: opacity 260ms ease, transform 300ms ease;
 }
 
 .reveal-up.is-in-view {
@@ -298,25 +295,19 @@
 .reveal-side-left,
 .reveal-side-right {
 	opacity: 0;
-	filter: blur(4px);
-	will-change: transform, opacity, filter;
-	transition:
-		opacity 1100ms cubic-bezier(0.16, 1, 0.3, 1),
-		transform 1200ms cubic-bezier(0.16, 1, 0.3, 1),
-		filter 1200ms cubic-bezier(0.16, 1, 0.3, 1);
+	transition: opacity 260ms ease, transform 320ms ease;
 }
 
 .reveal-side-left {
-	transform: translate3d(-72px, 0, 0);
+	transform: translate3d(-24px, 0, 0);
 }
 
 .reveal-side-right {
-	transform: translate3d(72px, 0, 0);
+	transform: translate3d(24px, 0, 0);
 }
 
 .reveal-side-left.is-in-view,
 .reveal-side-right.is-in-view {
 	opacity: 1;
 	transform: translate3d(0, 0, 0);
-	filter: blur(0);
 }
