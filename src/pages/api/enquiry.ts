@@ -1,5 +1,8 @@
 import type { APIRoute } from 'astro';
 import nodemailer from 'nodemailer';
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 export const prerender = false;
 
@@ -9,18 +12,80 @@ const asText = (value: unknown): string => {
 
 const asBool = (value: string | undefined, fallback = true): boolean => {
   if (value === undefined) return fallback;
-  return value.toLowerCase() === 'true';
+  const normalized = value.toLowerCase().trim();
+  return normalized === 'true' || normalized === '1' || normalized === 'yes';
+};
+
+let fileEnvCache: Record<string, string> | null = null;
+
+const parseEnvValue = (rawValue: string): string => {
+  const trimmed = rawValue.trim();
+  const isQuoted = (trimmed.startsWith('"') && trimmed.endsWith('"')) || (trimmed.startsWith("'") && trimmed.endsWith("'"));
+  return isQuoted ? trimmed.slice(1, -1) : trimmed;
+};
+
+const loadFileEnv = (): Record<string, string> => {
+  if (fileEnvCache) return fileEnvCache;
+
+  const moduleDir = path.dirname(fileURLToPath(import.meta.url));
+  const candidates = [
+    path.resolve(process.cwd(), '.env'),
+    path.resolve(process.cwd(), '..', '.env'),
+    path.resolve(moduleDir, '../../../.env'),
+    path.resolve(moduleDir, '../../../../.env'),
+    path.resolve(moduleDir, '../../../../../.env'),
+  ];
+
+  const seen = new Set<string>();
+  const merged: Record<string, string> = {};
+
+  for (const candidate of candidates) {
+    if (seen.has(candidate) || !fs.existsSync(candidate)) continue;
+    seen.add(candidate);
+
+    try {
+      const content = fs.readFileSync(candidate, 'utf8');
+      const lines = content.split(/\r?\n/);
+      for (const line of lines) {
+        const trimmed = line.trim();
+        if (!trimmed || trimmed.startsWith('#')) continue;
+
+        const separatorIndex = trimmed.indexOf('=');
+        if (separatorIndex <= 0) continue;
+
+        const key = trimmed.slice(0, separatorIndex).trim();
+        const value = parseEnvValue(trimmed.slice(separatorIndex + 1));
+        if (key && !(key in merged)) {
+          merged[key] = value;
+        }
+      }
+    } catch (readError) {
+      console.warn('Failed to read .env file:', candidate, readError);
+    }
+  }
+
+  fileEnvCache = merged;
+  return merged;
+};
+
+const normalizeSmtpPassword = (value: string): string => {
+  return value.replace(/\s+/g, '');
 };
 
 const readEnv = (name: string): string => {
-  const viteValue = import.meta.env[name as keyof ImportMetaEnv];
-  if (typeof viteValue === 'string' && viteValue.trim()) {
-    return viteValue.trim();
-  }
-
   const nodeValue = process.env[name];
   if (typeof nodeValue === 'string' && nodeValue.trim()) {
     return nodeValue.trim();
+  }
+
+  const fileEnvValue = loadFileEnv()[name];
+  if (typeof fileEnvValue === 'string' && fileEnvValue.trim()) {
+    return fileEnvValue.trim();
+  }
+
+  const viteValue = import.meta.env[name as keyof ImportMetaEnv];
+  if (typeof viteValue === 'string' && viteValue.trim()) {
+    return viteValue.trim();
   }
 
   return '';
@@ -54,7 +119,7 @@ export const POST: APIRoute = async ({ request }) => {
     const smtpPort = Number(readEnv('SMTP_PORT') || '465');
     const smtpSecure = asBool(readEnv('SMTP_SECURE') || undefined, true);
     const smtpUser = readEnv('SMTP_USER');
-    const smtpPass = readEnv('SMTP_PASS');
+    const smtpPass = normalizeSmtpPassword(readEnv('SMTP_PASS'));
 
     const mailFrom = readEnv('MAIL_FROM') || smtpUser;
     const mailTo =
