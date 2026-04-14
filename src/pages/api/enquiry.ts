@@ -12,6 +12,20 @@ const asBool = (value: string | undefined, fallback = true): boolean => {
   return value.toLowerCase() === 'true';
 };
 
+const readEnv = (name: string): string => {
+  const viteValue = import.meta.env[name as keyof ImportMetaEnv];
+  if (typeof viteValue === 'string' && viteValue.trim()) {
+    return viteValue.trim();
+  }
+
+  const nodeValue = process.env[name];
+  if (typeof nodeValue === 'string' && nodeValue.trim()) {
+    return nodeValue.trim();
+  }
+
+  return '';
+};
+
 const normalizeSmtpHost = (host: string): string => {
   const lowerHost = host.toLowerCase();
   if (lowerHost === 'mail.gmail.com') {
@@ -36,16 +50,16 @@ export const POST: APIRoute = async ({ request }) => {
       });
     }
 
-    const smtpHost = normalizeSmtpHost(asText(import.meta.env.SMTP_HOST));
-    const smtpPort = Number(import.meta.env.SMTP_PORT ?? '465');
-    const smtpSecure = asBool(import.meta.env.SMTP_SECURE, true);
-    const smtpUser = asText(import.meta.env.SMTP_USER);
-    const smtpPass = asText(import.meta.env.SMTP_PASS);
+    const smtpHost = normalizeSmtpHost(readEnv('SMTP_HOST'));
+    const smtpPort = Number(readEnv('SMTP_PORT') || '465');
+    const smtpSecure = asBool(readEnv('SMTP_SECURE') || undefined, true);
+    const smtpUser = readEnv('SMTP_USER');
+    const smtpPass = readEnv('SMTP_PASS');
 
-    const mailFrom = asText(import.meta.env.MAIL_FROM) || smtpUser;
+    const mailFrom = readEnv('MAIL_FROM') || smtpUser;
     const mailTo =
-      asText(import.meta.env.MAIL_TO) ||
-      asText(import.meta.env.SALES_EMAIL) ||
+      readEnv('MAIL_TO') ||
+      readEnv('SALES_EMAIL') ||
       smtpUser;
 
     if (!smtpHost || !smtpUser || !smtpPass || !mailTo) {
@@ -59,11 +73,15 @@ export const POST: APIRoute = async ({ request }) => {
       host: smtpHost,
       port: smtpPort,
       secure: smtpSecure,
+      requireTLS: !smtpSecure,
+      connectionTimeout: 15000,
       auth: {
         user: smtpUser,
         pass: smtpPass,
       },
     });
+
+    await transporter.verify();
 
     const details = enquiry || [
       `Title: ${asText(body?.title)}`,
@@ -92,29 +110,33 @@ export const POST: APIRoute = async ({ request }) => {
       ].join('\n'),
     });
 
-    await transporter.sendMail({
-      from: mailFrom,
-      to: email,
-      replyTo: mailTo,
-      subject: 'Nomination received',
-      text: [
-        `Hi ${name},`,
-        '',
-        'Thank you for your nomination. We have received your details and our team will contact you shortly.',
-        '',
-        'Regards,',
-        'Elite Achievers Awards Team',
-      ].join('\n'),
-    });
+    try {
+      await transporter.sendMail({
+        from: mailFrom,
+        to: email,
+        replyTo: mailTo,
+        subject: 'Nomination received',
+        text: [
+          `Hi ${name},`,
+          '',
+          'Thank you for your nomination. We have received your details and our team will contact you shortly.',
+          '',
+          'Regards,',
+          'Elite Achievers Awards Team',
+        ].join('\n'),
+      });
+    } catch (replyError) {
+      console.warn('Nomination acknowledgement email failed:', replyError);
+    }
 
     return new Response(JSON.stringify({ message: 'Nomination submitted successfully.' }), {
       status: 200,
       headers: { 'Content-Type': 'application/json' },
     });
   } catch (error) {
-    const message = error instanceof Error ? error.message : 'Unable to submit nomination right now.';
+    console.error('Nomination API error:', error);
 
-    return new Response(JSON.stringify({ message }), {
+    return new Response(JSON.stringify({ message: 'Unable to submit nomination right now.' }), {
       status: 500,
       headers: { 'Content-Type': 'application/json' },
     });
