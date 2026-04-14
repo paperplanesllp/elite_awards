@@ -34,6 +34,13 @@ const marqueeLogos = [0, 1, 2, 3, 4, 5, 6, 7];
     <title>Elite Achievers Awards 2026 | Honouring Excellence. Elevating Influence.</title>
   </head>
   <body>
+    <div class="form-loading-overlay" id="form-loading-overlay" aria-hidden="true">
+      <div class="form-loading-card" role="status" aria-live="polite" aria-label="Submitting nomination">
+        <span class="form-loading-spinner" aria-hidden="true"></span>
+        <span class="form-loading-text">Submitting nomination...</span>
+      </div>
+    </div>
+
     <Navbar />
     <EventCalendar />
     <main class="nitely-page">
@@ -442,9 +449,18 @@ const marqueeLogos = [0, 1, 2, 3, 4, 5, 6, 7];
 
         const enquiryForm = document.querySelector('#enquiry-form') as HTMLFormElement | null;
         const enquiryStatus = document.querySelector('#enquiry-status') as HTMLElement | null;
+        const formLoadingOverlay = document.querySelector('#form-loading-overlay') as HTMLElement | null;
         const profileTypeSelect = document.querySelector('#profile-type-select') as HTMLSelectElement | null;
         const sectorSelect = document.querySelector('#sector-select') as HTMLSelectElement | null;
         const awardCategorySelect = document.querySelector('#award-category-select') as HTMLSelectElement | null;
+
+        const setFormLoading = (isLoading: boolean) => {
+          if (!formLoadingOverlay) return;
+
+          formLoadingOverlay.classList.toggle('is-visible', isLoading);
+          formLoadingOverlay.setAttribute('aria-hidden', isLoading ? 'false' : 'true');
+          document.body.classList.toggle('is-loading-form', isLoading);
+        };
 
         const awardCategoriesBySector: Record<string, string[]> = {
           Startups: [
@@ -1422,6 +1438,7 @@ const marqueeLogos = [0, 1, 2, 3, 4, 5, 6, 7];
 
             const submitButton = enquiryForm.querySelector('input[type="submit"]') as HTMLInputElement | null;
             if (submitButton) submitButton.disabled = true;
+            setFormLoading(true);
 
             enquiryStatus.textContent = 'Submitting your nomination...';
             enquiryStatus.classList.remove('success', 'error');
@@ -1505,6 +1522,7 @@ const marqueeLogos = [0, 1, 2, 3, 4, 5, 6, 7];
               enquiryStatus.classList.remove('submitting', 'success');
               enquiryStatus.classList.add('error');
             } finally {
+              setFormLoading(false);
               if (submitButton) submitButton.disabled = false;
             }
           });
