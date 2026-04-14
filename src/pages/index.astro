@@ -1510,7 +1510,10 @@ const marqueeLogos = [0, 1, 2, 3, 4, 5, 6, 7];
                 throw new Error(result.message || 'Unable to submit nomination right now.');
               }
 
-              enquiryStatus.textContent = 'Thank you. Your nomination has been received successfully.';
+              enquiryStatus.textContent =
+                typeof result?.message === 'string'
+                  ? result.message
+                  : 'Thank you. Your nomination has been received successfully.';
               enquiryStatus.classList.remove('submitting', 'error');
               enquiryStatus.classList.add('success');
               enquiryForm.reset();

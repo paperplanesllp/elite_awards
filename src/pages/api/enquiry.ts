@@ -184,6 +184,7 @@ export const POST: APIRoute = async ({ request }) => {
       ].join('\n'),
     });
 
+    let acknowledgementSent = false;
     try {
       const nomineeName = name || 'Nominee';
       const registeredPhone = phone || 'Not provided';
@@ -234,19 +235,38 @@ export const POST: APIRoute = async ({ request }) => {
   </div>
 </div>`.trim();
 
-      await transporter.sendMail({
-        from: mailFrom,
-        to: email,
-        replyTo: mailTo,
-        subject: acknowledgementSubject,
-        text: acknowledgementText,
-        html: acknowledgementHtml,
-      });
+      try {
+        await transporter.sendMail({
+          from: mailFrom,
+          to: email,
+          replyTo: mailTo,
+          subject: acknowledgementSubject,
+          text: acknowledgementText,
+          html: acknowledgementHtml,
+        });
+        acknowledgementSent = true;
+      } catch (primaryReplyError) {
+        console.warn('Nomination acknowledgement failed with configured MAIL_FROM. Retrying with SMTP_USER.', primaryReplyError);
+
+        await transporter.sendMail({
+          from: `Elite Achievers Awards <${smtpUser}>`,
+          to: email,
+          replyTo: mailTo,
+          subject: acknowledgementSubject,
+          text: acknowledgementText,
+          html: acknowledgementHtml,
+        });
+        acknowledgementSent = true;
+      }
     } catch (replyError) {
-      console.warn('Nomination acknowledgement email failed:', replyError);
+      console.error('Nomination acknowledgement email failed after retry:', replyError);
     }
 
-    return new Response(JSON.stringify({ message: 'Nomination submitted successfully.' }), {
+    const responseMessage = acknowledgementSent
+      ? 'Nomination submitted successfully.'
+      : 'Nomination submitted, but confirmation email could not be delivered right now. Please check spam or contact support.';
+
+    return new Response(JSON.stringify({ message: responseMessage, acknowledgementSent }), {
       status: 200,
       headers: { 'Content-Type': 'application/json' },
     });
